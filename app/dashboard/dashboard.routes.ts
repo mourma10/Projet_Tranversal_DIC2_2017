@@ -14,7 +14,7 @@ import {AuthGuard} from '../authentification/authentification.guard';
 
 export const MODULE_ROUTES: Route[] = [
     {path: 'login', component: LoginComponent},
-    {path: 'dashboard', component: HomeComponent, canActivate: [AuthGuard]},
+    {path: 'dashboard', component: HomeComponent},
     {path: 'user', component: UserComponent},
     {path: 'table', component: TableComponent},
     {path: 'icons', component: IconsComponent},

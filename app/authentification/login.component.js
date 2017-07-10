@@ -22,18 +22,17 @@ var LoginComponent = (function () {
         this.authenticationService.logout();
     };
     LoginComponent.prototype.login = function () {
-        var _this = this;
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
-            .subscribe(function (result) {
-            if (result === true) {
-                _this.router.navigate(['/dashboard']);
-            }
-            else {
-                _this.error = 'Username or password is incorrect';
-                _this.loading = false;
-            }
-        });
+        this.router.navigate(['/dashboard']);
+        /*this.authenticationService.login(this.model.username, this.model.password)
+            .subscribe(result => {
+                if (result === true) {
+                    this.router.navigate(['/dashboard']);
+                } else {
+                    this.error = 'Username or password is incorrect';
+                    this.loading = false;
+                }
+            });*/
     };
     LoginComponent = __decorate([
         core_1.Component({
