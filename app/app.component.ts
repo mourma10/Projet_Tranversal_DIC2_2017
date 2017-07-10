@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {LocationStrategy, PlatformLocation, Location} from '@angular/common';
+import {AuthentificationService} from './authentification/authentification.service';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
     selector: 'my-app',
@@ -9,19 +11,22 @@ declare var $:any;
     templateUrl: 'app.component.html'
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
     location: Location;
-    constructor(location:Location) {
+
+    constructor(location: Location, auth: AuthentificationService) {
         this.location = location;
     }
-    ngOnInit(){
+
+    ngOnInit() {
         $.getScript('../assets/js/material-dashboard.js');
         $.getScript('../assets/js/initMenu.js');
     }
-    public isMaps(path){
+
+    public isMaps(path) {
         var titlee = this.location.prepareExternalUrl(this.location.path());
-        titlee = titlee.slice( 1 );
-        if(path == titlee){
+        titlee = titlee.slice(1);
+        if (path == titlee) {
             return false;
         }
         else {

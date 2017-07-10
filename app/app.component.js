@@ -10,8 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var authentification_service_1 = require('./authentification/authentification.service');
 var AppComponent = (function () {
-    function AppComponent(location) {
+    function AppComponent(location, auth) {
         this.location = location;
     }
     AppComponent.prototype.ngOnInit = function () {
@@ -34,7 +35,7 @@ var AppComponent = (function () {
             moduleId: module.id,
             templateUrl: 'app.component.html'
         }), 
-        __metadata('design:paramtypes', [common_1.Location])
+        __metadata('design:paramtypes', [common_1.Location, authentification_service_1.AuthentificationService])
     ], AppComponent);
     return AppComponent;
 }());

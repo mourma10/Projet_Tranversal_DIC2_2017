@@ -1,7 +1,9 @@
-import { Component, OnInit, trigger, state, style, transition, animate } from '@angular/core';
+import {Component, OnInit, trigger, state, style, transition, animate} from '@angular/core';
 import initDemo = require('../../../assets/js/charts.js');
+import {UserService} from '../../authentification/useraccount.service';
+import {User} from '../../authentification/useraccount.component';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
     selector: 'home-cmp',
@@ -9,14 +11,18 @@ declare var $:any;
     templateUrl: 'home.component.html'
 })
 
-export class HomeComponent implements OnInit{
-    ngOnInit(){
-        // $('[data-toggle="checkbox"]').each(function () {
-        //     if($(this).data('toggle') == 'switch') return;
-        //
-        //     var $checkbox = $(this);
-        //     $checkbox.checkbox();
-        // });
+export class HomeComponent implements OnInit {
+    user: User;
+
+    constructor(private userService: UserService) {
+    }
+
+    ngOnInit() {
+        // get users from secure api end point
+        this.userService.getUser()
+            .subscribe(user => {
+                this.user = user;
+            });
         initDemo();
     }
 }

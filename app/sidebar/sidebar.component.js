@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var sidebar_routes_config_1 = require('./sidebar-routes.config');
+var common_1 = require('@angular/common');
 var SidebarComponent = (function () {
-    function SidebarComponent() {
+    function SidebarComponent(location) {
+        this.location = location;
     }
     SidebarComponent.prototype.ngOnInit = function () {
         $.getScript('../../assets/js/sidebar-moving-tab.js');
@@ -23,7 +25,7 @@ var SidebarComponent = (function () {
             selector: 'sidebar-cmp',
             templateUrl: 'sidebar.component.html',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [common_1.Location])
     ], SidebarComponent);
     return SidebarComponent;
 }());

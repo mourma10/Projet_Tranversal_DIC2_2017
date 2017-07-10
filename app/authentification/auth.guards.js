@@ -10,21 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var dashboard_routes_1 = require('./dashboard.routes');
-var DashboardModule = (function () {
-    function DashboardModule() {
+var AuthGuard = (function () {
+    function AuthGuard(router) {
+        this.router = router;
     }
-    DashboardModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                router_1.RouterModule.forChild(dashboard_routes_1.MODULE_ROUTES)
-            ],
-            declarations: [dashboard_routes_1.MODULE_COMPONENTS],
-            exports: [dashboard_routes_1.MODULE_COMPONENTS]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], DashboardModule);
-    return DashboardModule;
+    AuthGuard.prototype.canActivate = function () {
+        if (localStorage.getItem('currentUser')) {
+            // logged in so return true
+            return true;
+        }
+        // not logged in so redirect to login page
+        this.router.navigate(['/login']);
+        return false;
+    };
+    AuthGuard = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [router_1.Router])
+    ], AuthGuard);
+    return AuthGuard;
 }());
-exports.DashboardModule = DashboardModule;
-//# sourceMappingURL=dashboard.module.js.map
+exports.AuthGuard = AuthGuard;
+//# sourceMappingURL=auth.guards.js.map

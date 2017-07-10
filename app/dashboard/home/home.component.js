@@ -10,16 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var initDemo = require('../../../assets/js/charts.js');
+var useraccount_service_1 = require('../../authentification/useraccount.service');
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(userService) {
+        this.userService = userService;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        // $('[data-toggle="checkbox"]').each(function () {
-        //     if($(this).data('toggle') == 'switch') return;
-        //
-        //     var $checkbox = $(this);
-        //     $checkbox.checkbox();
-        // });
+        var _this = this;
+        // get users from secure api end point
+        this.userService.getUser()
+            .subscribe(function (user) {
+            _this.user = user;
+        });
         initDemo();
     };
     HomeComponent = __decorate([
@@ -28,7 +30,7 @@ var HomeComponent = (function () {
             moduleId: module.id,
             templateUrl: 'home.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [useraccount_service_1.UserService])
     ], HomeComponent);
     return HomeComponent;
 }());
