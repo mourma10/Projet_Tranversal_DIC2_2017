@@ -1,4 +1,5 @@
 import {Route} from '@angular/router';
+import {Route} from '@angular/router';
 import {DashboardComponent} from './dashboard.component';
 import {LoginComponent} from '../authentification/login.component';
 import {HomeComponent} from './home/home.component';
@@ -9,6 +10,8 @@ import {NotificationsComponent} from './notifications/notifications.component';
 import {TypographyComponent} from './typography/typography.component';
 import {MapsComponent} from './maps/maps.component';
 import {UpgradeComponent} from './upgrade/upgrade.component';
+import {TransporteursComponent} from './transporteurs/transporteurs.component';
+import {RepresentantsComponent} from './representants/representants.component';
 
 import {AuthGuard} from '../authentification/authentification.guard';
 
@@ -19,6 +22,8 @@ export const MODULE_ROUTES: Route[] = [
     {path: 'table', component: TableComponent},
     {path: 'icons', component: IconsComponent},
     {path: 'typography', component: TypographyComponent},
+    {path: 'transporteurs', component: TransporteursComponent},
+    {path: 'representants', component: RepresentantsComponent},
     /*{path: 'notifications', component: NotificationsComponent},
     {path: 'maps', component: MapsComponent},
     {path: 'upgrade', component: UpgradeComponent},*/
@@ -31,7 +36,9 @@ export const MODULE_COMPONENTS = [
     UserComponent,
     TableComponent,
     IconsComponent,
-    TypographyComponent
+    TypographyComponent,
+    TransporteursComponent,
+    RepresentantsComponent
     /*NotificationsComponent,
     MapsComponent,
     UpgradeComponent,*/
