@@ -5,16 +5,27 @@
                 <div class="col-md-9">
                 </div>
                 <div class="col-md-3">
-                    <button class="btn btn-primary btn-icon btn-icon-right" type="submit">
+                    <button class="btn btn-info btn-icon btn-icon-right" (click)="myModal.open()">
                         <i class="material-icons">create</i>
                         Ajouter Representant
                     </button>
                 </div>
             </div>
+            <!--<modal #myModal>
+                <modal-header>
+                    <h1>Modal header</h1>
+                </modal-header>
+                <modal-content>
+                    Hello Modal!
+                </modal-content>
+                <modal-footer>
+                    <button class="btn btn-primary" (click)="myModal.close()">close</button>
+                </modal-footer>
+          </modal> -->
             <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="card-header" data-background-color="red">
-                        <h4 class="title">Representants</h4>
+                        <h3 class="title">Representants</h3>
                         <p class="category">la liste de mes representants</p>
                     </div>
                     <div class="card-content table-responsive">
@@ -37,7 +48,7 @@
                                 <td>Niger</td>
                                 <td>OudOud-Turnhout</td>
                                 <td>
-                                    <button class="btn btn-primary btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -49,7 +60,7 @@
                                 <td>Curaçao</td>
                                 <td>Sinaai-Waas</td>
                                 <td>
-                                    <button class="btn btn-primary btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -61,7 +72,7 @@
                                 <td>Netherlands</td>
                                 <td>Baileux</td>
                                 <td>
-                                    <button class="btn btn-primary btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -73,7 +84,7 @@
                                 <td>Korea, South</td>
                                 <td>Overland Park</td>
                                 <td>
-                                    <button class="btn btn-primary btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -97,7 +108,7 @@
                                 <td>Chile</td>
                                 <td>Gloucester</td>
                                 <td>
-                                    <button class="btn btn-primary btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-default btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -107,6 +118,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+            
+        </div> <!-- fin row -->
+    </div> <!-- fin container fluid -->
+</div> <!-- fin main-content -->
