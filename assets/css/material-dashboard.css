@@ -2936,7 +2936,10 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   padding-right: 24px;
   padding-bottom: 16px;
   padding-left: 24px;
+  overflow: scroll;
+  height:350px;
 }
+
 .modal-content .modal-footer {
   border-top: none;
   padding: 7px;
