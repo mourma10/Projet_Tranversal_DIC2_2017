@@ -29,6 +29,6 @@ exports.MODULE_COMPONENTS = [
     icons_component_1.IconsComponent,
     typography_component_1.TypographyComponent,
     transporteurs_component_1.TransporteursComponent,
-    representants_component_1.RepresentantsComponent
+    representants_component_1.RepresentantsComponent,
 ];
 //# sourceMappingURL=dashboard.routes.js.map

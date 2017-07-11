@@ -13,6 +13,7 @@ import {TransporteursComponent} from './transporteurs/transporteurs.component';
 import {RepresentantsComponent} from './representants/representants.component';
 
 import {AuthGuard} from '../authentification/authentification.guard';
+import {ModalModule} from 'ng2-modal';
 
 export const MODULE_ROUTES: Route[] = [
     {path: 'login', component: LoginComponent},
@@ -37,7 +38,7 @@ export const MODULE_COMPONENTS = [
     IconsComponent,
     TypographyComponent,
     TransporteursComponent,
-    RepresentantsComponent
+    RepresentantsComponent,
     /*NotificationsComponent,
     MapsComponent,
     UpgradeComponent,*/
