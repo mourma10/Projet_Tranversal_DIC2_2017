@@ -9,27 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var ng2_modal_1 = require('ng2-modal');
-var forms_1 = require('@angular/forms');
-var dashboard_routes_1 = require('./dashboard.routes');
-var ng2_modal_1 = require('ng2-modal');
-var DashboardModule = (function () {
-    function DashboardModule() {
+var TradingComponent = (function () {
+    function TradingComponent() {
     }
-    DashboardModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                router_1.RouterModule.forChild(dashboard_routes_1.MODULE_ROUTES),
-                ng2_modal_1.ModalModule,
-                forms_1.FormsModule
-            ],
-            declarations: [dashboard_routes_1.MODULE_COMPONENTS],
-            exports: [dashboard_routes_1.MODULE_COMPONENTS]
+    TradingComponent = __decorate([
+        core_1.Component({
+            selector: 'trading-cmp',
+            moduleId: module.id,
+            templateUrl: 'trading.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], DashboardModule);
-    return DashboardModule;
+    ], TradingComponent);
+    return TradingComponent;
 }());
-exports.DashboardModule = DashboardModule;
-//# sourceMappingURL=dashboard.module.js.map
+exports.TradingComponent = TradingComponent;
+//# sourceMappingURL=trading.component.js.map

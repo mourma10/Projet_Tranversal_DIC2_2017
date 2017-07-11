@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http';
+import {ModalModule} from 'ng2-modal';
 
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
@@ -23,6 +24,7 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
         BrowserModule,
         FormsModule,
         HttpModule,
+        ModalModule,
         SidebarModule,
         NavbarModule,
         FooterModule,

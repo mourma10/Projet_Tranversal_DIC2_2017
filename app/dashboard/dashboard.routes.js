@@ -6,6 +6,7 @@ var icons_component_1 = require('./icons/icons.component');
 var table_component_1 = require('./table/table.component');
 var typography_component_1 = require('./typography/typography.component');
 var transporteurs_component_1 = require('./transporteurs/transporteurs.component');
+var trading_component_1 = require('./trading/trading.component');
 var representants_component_1 = require('./representants/representants.component');
 exports.MODULE_ROUTES = [
     { path: 'login', component: login_component_1.LoginComponent },
@@ -16,6 +17,7 @@ exports.MODULE_ROUTES = [
     { path: 'typography', component: typography_component_1.TypographyComponent },
     { path: 'transporteurs', component: transporteurs_component_1.TransporteursComponent },
     { path: 'representants', component: representants_component_1.RepresentantsComponent },
+    { path: 'trading', component: trading_component_1.TradingComponent },
     /*{path: 'notifications', component: NotificationsComponent},
     {path: 'maps', component: MapsComponent},
     {path: 'upgrade', component: UpgradeComponent},*/
@@ -28,6 +30,7 @@ exports.MODULE_COMPONENTS = [
     table_component_1.TableComponent,
     icons_component_1.IconsComponent,
     typography_component_1.TypographyComponent,
+    trading_component_1.TradingComponent,
     transporteurs_component_1.TransporteursComponent,
     representants_component_1.RepresentantsComponent,
 ];

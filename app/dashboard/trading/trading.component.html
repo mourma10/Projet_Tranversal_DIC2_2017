@@ -5,30 +5,39 @@
                 <div class="col-md-9">
                 </div>
                 <div class="col-md-3">
-                    <button class="btn btn-warning btn-icon btn-icon-right" type="submit">
+                    <button class="btn btn-success btn-icon btn-icon-right" (click)="myModal.open()">
                         <i class="material-icons">create</i>
-                        Ajouter Transporteur
+                        Nouveau Trading
                     </button>
                 </div>
             </div>
+            <modal #myModal>
+                <modal-header>
+                    <h1>Modal header</h1>
+                </modal-header>
+                <modal-content>
+                    Hello Modal!
+                </modal-content>
+                <modal-footer>
+                    <button class="btn btn-primary" (click)="myModal.close()">close</button>
+                </modal-footer>
+            </modal>
             <div class="col-md-12">
-                <div class="card">
+                <div class="card card-plain">
                     <div class="card-header" data-background-color="red">
-                        <h4 class="title">Transporteurs</h4>
-                        <p class="category">La liste de mes transporteurs</p>
+                        <h3 class="title">Trading</h3>
+                        <p class="category">la liste de trading</p>
                     </div>
-
-
                     <div class="card-content table-responsive">
-                        <table class="table">
-                            <thead class="text-danger">
+                        <table class="table table-hover">
+                            <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Nom</th>
-                                <th>Prenom</th>
-                                <th>Continent</th>
-                                <th>Ville</th>
-                                <th>Telephone</th>
+                                <th>ID</th>
+                                <th>libellé</th>
+                                <th>Destination</th>
+                                <th>Date de debut</th>
+                                <th>Transporteur</th>
+                                <th>Representant</th>
                                 <th>Plus</th>
                                 <th></th>
                             </tr>
@@ -37,12 +46,12 @@
                             <tr>
                                 <td>1</td>
                                 <td>Dakota Rice</td>
+                                <td>$36,738</td>
                                 <td>Niger</td>
-                                <td>Oud-Turnhout</td>
-                                <td class="text-danger">$36,738</td>
-                                <td class="text-danger">$36,738</td>
+                                <td>OudOud-Turnhout</td>
+                                <td>OudOud-Turnhout</td>
                                 <td>
-                                    <button class="btn btn-warning btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-success btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -55,12 +64,12 @@
                             <tr>
                                 <td>2</td>
                                 <td>Minerva Hooper</td>
+                                <td>$23,789</td>
                                 <td>Curaçao</td>
                                 <td>Sinaai-Waas</td>
-                                <td class="text-danger">$23,789</td>
-                                <td class="text-danger">$23,789</td>
+                                <td>Sinaai-Waas</td>
                                 <td>
-                                    <button class="btn btn-warning btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-success btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -73,12 +82,12 @@
                             <tr>
                                 <td>3</td>
                                 <td>Sage Rodriguez</td>
+                                <td>$56,142</td>
                                 <td>Netherlands</td>
                                 <td>Baileux</td>
-                                <td class="text-danger">$56,142</td>
-                                <td class="text-danger">$56,142</td>
+                                <td>Baileux</td>
                                 <td>
-                                    <button class="btn btn-warning btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-success btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -91,12 +100,12 @@
                             <tr>
                                 <td>4</td>
                                 <td>Philip Chaney</td>
+                                <td>$38,735</td>
                                 <td>Korea, South</td>
                                 <td>Overland Park</td>
-                                <td class="text-danger">$38,735</td>
-                                <td class="text-danger">$38,735</td>
+                                <td>Overland Park</td>
                                 <td>
-                                    <button class="btn btn-warning btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-success btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -109,12 +118,12 @@
                             <tr>
                                 <td>5</td>
                                 <td>Doris Greene</td>
+                                <td>$63,542</td>
                                 <td>Malawi</td>
                                 <td>Feldkirchen in Kärnten</td>
-                                <td class="text-danger">$63,542</td>
-                                <td class="text-danger">$63,542</td>
+                                <td>Feldkirchen in Kärnten</td>
                                 <td>
-                                    <button class="btn btn-warning btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-success btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -127,12 +136,12 @@
                             <tr>
                                 <td>6</td>
                                 <td>Mason Porter</td>
+                                <td>$78,615</td>
                                 <td>Chile</td>
                                 <td>Gloucester</td>
-                                <td class="text-danger">$78,615</td>
-                                <td class="text-danger">$78,615</td>
+                                <td>Gloucester</td>
                                 <td>
-                                    <button class="btn btn-warning btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-success btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>
@@ -144,10 +153,10 @@
                             </tr>
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
+        </div> <!-- fin row -->
+    </div> <!-- fin container fluid -->
+</div> <!-- fin main-content -->

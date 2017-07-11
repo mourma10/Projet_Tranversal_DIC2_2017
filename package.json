@@ -45,8 +45,8 @@
   "devDependencies": {
     "@types/chartist": "~0.9.33",
     "@types/core-js": "~0.9.34",
-    "@types/jquery": "~2.0.34",
-    "@types/node": "~6.0.45",
+    "@types/jquery": "^2.0.48",
+    "@types/node": "^6.0.80",
     "concurrently": "~3.0.0",
     "lite-server": "~2.2.2",
     "typescript": "~2.0.3"
