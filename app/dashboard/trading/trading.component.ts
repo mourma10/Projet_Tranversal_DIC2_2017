@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 
+
 @Component({
     selector: 'trading-cmp',
     moduleId: module.id,
@@ -7,4 +8,5 @@ import {Component} from '@angular/core';
 })
 
 export class TradingComponent {
+
 }
