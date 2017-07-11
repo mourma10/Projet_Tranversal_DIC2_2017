@@ -19,7 +19,7 @@ var UserService = (function () {
     }
     UserService.prototype.getUser = function () {
         // add authorization header with jwt token
-        var headers = new http_1.Headers({ 'Authorization': 'Basic ' + this.authenticationService.token });
+        var headers = new http_1.Headers({ 'Authorization': 'Bearer' + this.authenticationService.token });
         var options = new http_1.RequestOptions({ headers: headers });
         // get user from api
         return this.http.get('', options)

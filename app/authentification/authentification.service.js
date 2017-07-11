@@ -20,7 +20,9 @@ var AuthentificationService = (function () {
     }
     AuthentificationService.prototype.login = function (username, password) {
         var _this = this;
-        return this.http.post('', JSON.stringify({ username: username, password: password }))
+        var headers = new http_1.Headers({ 'Authorization': 'Bearer' + this.token });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post('', JSON.stringify({ username: username, password: password }), options)
             .map(function (response) {
             var token = response.json() && response.json().token;
             if (token) {

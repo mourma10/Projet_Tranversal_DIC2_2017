@@ -14,7 +14,7 @@ export class UserService {
 
     getUser(): Observable<User> {
         // add authorization header with jwt token
-        let headers = new Headers({'Authorization': 'Basic ' + this.authenticationService.token});
+        let headers = new Headers({'Authorization': 'Bearer' + this.authenticationService.token});
         let options = new RequestOptions({headers: headers});
 
         // get user from api
