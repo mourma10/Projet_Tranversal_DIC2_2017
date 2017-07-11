@@ -5,14 +5,22 @@
                 <div class="col-md-9">
                 </div>
                 <div class="col-md-3">
-                    <button class="btn btn-warning btn-icon btn-icon-right" (click)="myModal.open()">
+                    <button class="btn btn-warning btn-icon btn-icon-right" (click)="addTransporteurModal.open()">
                         <i class="material-icons">create</i>
                         Ajouter Transporteur
                     </button>
                 </div>
             </div>
 
-             <modal #myModal>
+             <modal #addTransporteurModal
+       
+        modalClass="modal-lg modal-sm any-other-css-class"
+        [hideCloseButton]="false"
+        [closeOnEscape]="true"
+        [closeOnOutsideClick]="true"
+        (onOpen)="actionOnOpen()"
+        (onClose)="actionOnClose()"
+        (onSubmit)="actionOnSubmit()">
                 <modal-header>
                     <h2>Ajouter un Transporteur</h2>
                 </modal-header>
@@ -53,15 +61,13 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="clearfix"></div>
                     </form>
                 </div>
             </div>
                 </modal-content>
                 <modal-footer>
                    <button type="submit" class="btn btn-warning" >Ajouter</button>
-                   <button class="btn btn-danger" (click)="myModal.close()">Annuler</button>
+                   <button class="btn btn-danger" (click)="addTransporteurModal.close()">Annuler</button>
                         
                 </modal-footer>
             </modal>

@@ -5,14 +5,22 @@
                 <div class="col-md-9">
                 </div>
                 <div class="col-md-3">
-                    <button class="btn btn-info btn-icon btn-icon-right" (click)="myModal.open()">
+                    <button class="btn btn-info btn-icon btn-icon-right" (click)="addReprModal.open()">
                         <i class="material-icons">create</i>
                         Ajouter Representant
                     </button>
                 </div>
             </div>
           
-            <modal #myModal>
+            <modal #addReprModal
+       
+        modalClass="modal-lg modal-sm any-other-css-class"
+        [hideCloseButton]="false"
+        [closeOnEscape]="true"
+        [closeOnOutsideClick]="true"
+        (onOpen)="actionOnOpen()"
+        (onClose)="actionOnClose()"
+        (onSubmit)="actionOnSubmit()">
                 <modal-header>
                     <h2>Ajouter un Representant</h2>
                 </modal-header>
@@ -61,7 +69,7 @@
                 </modal-content>
                 <modal-footer>
                    <button type="submit" class="btn btn-info">Ajouter</button>
-                   <button class="btn btn-danger" (click)="myModal.close()">Annuler</button>
+                   <button class="btn btn-danger" (click)="addReprModal.close()">Annuler</button>
                         
                 </modal-footer>
             </modal>
@@ -160,7 +168,7 @@
                                 <td>Malawi</td>
                                 <td>Feldkirchen in Kärnten</td>
                                 <td>
-                                    <button class="btn btn-primary btn-icon btn-icon-right" type="submit">
+                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
                                         Details
                                     </button>
                                 </td>

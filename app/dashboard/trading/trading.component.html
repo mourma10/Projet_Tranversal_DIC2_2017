@@ -5,15 +5,23 @@
                 <div class="col-md-9">
                 </div>
                 <div class="col-md-3">
-                    <button class="btn btn-success btn-icon btn-icon-right" (click)="myModal.open()">
+                    <button class="btn btn-success btn-icon btn-icon-right" (click)="addTradingModal.open()">
                         <i class="material-icons">create</i>
                         Nouveau Trading
                     </button>
                 </div>
             </div>
-           <modal #myModal>
+           <modal #addTradingModal
+       
+        modalClass="modal-lg modal-sm any-other-css-class"
+        [hideCloseButton]="false"
+        [closeOnEscape]="true"
+        [closeOnOutsideClick]="true"
+        (onOpen)="actionOnOpen()"
+        (onClose)="addTradingModal.close()"
+        (onSubmit)="actionOnSubmit()">
                 <modal-header>
-                    <h2>Ajouter un Transporteur</h2>
+                    <h2>Ajouter un nouveau Trading</h2>
                 </modal-header>
                 <modal-content>
                     <div class="card">
@@ -74,11 +82,12 @@
             </div>
                 </modal-content>
                 <modal-footer>
-                   <button type="submit" class="btn btn-success" >Ajouter</button>
-                   <button class="btn btn-danger" (click)="myModal.close()">Annuler</button>
+                  <button type="submit" class="btn btn-success">Ajouter</button>
+                   <button class="btn btn-danger" (click)="addTradingModal.close()">Annuler</button>
                         
                 </modal-footer>
             </modal>
+            
             <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="card-header" data-background-color="red">
