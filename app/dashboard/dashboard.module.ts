@@ -8,7 +8,7 @@ import {MODULE_COMPONENTS, MODULE_ROUTES} from './dashboard.routes';
     imports: [
         RouterModule.forChild(MODULE_ROUTES),
         ModalModule,
-        FormsModule
+        FormsModule,
     ],
     declarations: [MODULE_COMPONENTS],
     exports: [MODULE_COMPONENTS]
