@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -9,4 +10,11 @@ import {Component} from '@angular/core';
 
 export class TradingComponent {
 
+    constructor(private router: Router,) {
+    }
+
+instruction()
+        {
+        this.router.navigate(['/icons']);
+        }
 }

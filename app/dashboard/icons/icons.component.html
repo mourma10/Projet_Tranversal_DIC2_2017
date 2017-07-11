@@ -3,23 +3,221 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-plain">
-                    <div class="card-header" data-background-color="red">
-                        <h4 class="title">Material Design Icons</h4>
-                        <p class="category">Handcrafted by our friends from <a target="_blank" href="https://design.google.com/icons/">Google</a></p>
-                    </div>
-                    <div class="card-content">
-                        <div class="iframe-container hidden-sm hidden-xs">
-                            <iframe src="https://design.google.com/icons/">
-                                <p>Your browser does not support iframes.</p>
-                            </iframe>
+                <div class="col-md-9">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-warning btn-icon btn-icon-right" (click)="addInstructionModal.open()">
+                        <i class="material-icons">create</i>
+                        Emettre Instruction de Livraison
+                    </button>
+                </div>
+            </div>
+
+            <modal #addInstructionModal
+       
+        modalClass="modal-lg modal-sm any-other-css-class"
+        [hideCloseButton]="false"
+        [closeOnEscape]="true"
+        [closeOnOutsideClick]="true"
+        (onOpen)="actionOnOpen()"
+        (onClose)="actionOnClose()"
+        (onSubmit)="actionOnSubmit()">
+                <modal-header>
+                    <h4>Emettre Instruction de Livraison</h4>
+                </modal-header>
+                <modal-content>
+                    <div class="card">
+                <div class="card-header" data-background-color="orange">
+                    <h4 class="title">Saisir les informations</h4>
+                </div>
+                <div class="card-content">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Libellé</label>
+                                    <input type="email" class="form-control" >
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6 hidden-lg hidden-md text-center">
-                            <h5>The icons are visible on Desktop mode inside an iframe. Since the iframe is not working on Mobile and Tablets please visit the icons on their original page on Google. Check the  <a href="https://design.google.com/icons/" target="_blank">Material Icons</a></h5>
+                        <div class="row">     
+                            <div class="col-md-5">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label>Transporteur</label>
+                                    <select  class="browser-default">
+                                        <option value="mamour">Mamour Tall</option>
+                                        <option value="adji">Adja Ndiaye</option>
+                                        <option value="thierno">Thierno Diop</option>
+                                        <option value="maodo" selected>Maodo Diagne</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                           <div class="card">
+                        <div class="card-header" data-background-color="green">
+                            <h6 class="title">Saisir les marchandises</h6>
+                        </div>
+                        <div class="card-content">
+                            <form>
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Libellé</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Quantité</label>
+                                            <input type="text" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <button class="btn btn-success btn-icon btn-icon-left" >
+                                            <i class="material-icons">exposure_plus_1</i>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                            <table class="table">
+                                                <thead class="text-danger">
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>libelle</th>
+                                                    <th>Quantite</th>
+                                                    <th></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Sucre</td>
+                                                    <td>100 <small>Tonnes</small></td>
+                                                    <td>
+                                                        <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
+                                                            <i class="material-icons">delete</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+                </modal-content>
+                <modal-footer>
+                   <button type="submit" class="btn btn-warning" >Ajouter</button>
+                   <button class="btn btn-danger" (click)="addInstructionModal.close()">Annuler</button>     
+                </modal-footer>
+            </modal>
+
+        </div>    
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                        <div class="card-header" data-background-color="green">
+                            <h6 class="title">TRADING</h6>
+                        </div>
+                        <div class="card-content">
+                            <form>
+                                <h6 class="title">Informations Trading</h6>
+                                <table class="table">
+                                    <thead class="text-danger">
+                                    <tr>
+                                        <th>Libelle</th>
+                                        <th>Destination</th>
+                                        <th>Date de debut</th>
+                                        <th>Transporteur</th>
+                                        <th>Représentant</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Dakar-Paris</td>
+                                        <td>Dakar, Guediawaye</td>
+                                        <td>10/10/2017</td>
+                                        <td> Ousmane Lam</td>
+                                        <td> Moussa Thiam </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+                    <div class="card" >
+                        <div class="card-header" data-background-color="blue">
+                            <h3 class="title">Instructions de Livraison</h3>
+                        </div>
+                        <div class="card-content table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <tr>
+                                        <th>Libellé</th>
+                                        <th>Représentant</th>
+                                        <th>Transporteur</th>
+                                        <th>Plus</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>INSTR4791</td>
+                                        <td>Dakota Rice</td>
+                                        <td>Dakota Rice</td>
+                                        <td>
+                                    <button class="btn btn-success btn-icon btn-icon-right"  (click)="instruction()">
+                                        Details
+                                    </button>
+                                </td>
+                                    </tr>
+                                    <tr>
+                                        <td>kuih78</td>
+                                        <td>Minerva Hooper</td>
+                                        <td>Minerva Hooper</td>
+                                        <td>
+                                    <button class="btn btn-success btn-icon btn-icon-right"  (click)="instruction()">
+                                        Details
+                                    </button>
+                                </td>
+                                    </tr>
+                                    <tr>
+                                        <td>98564</td>
+                                        <td>Sage Rodriguez</td>
+                                        <td>Sage Rodriguez</td>
+                                        <td>
+                                    <button class="btn btn-success btn-icon btn-icon-right"  (click)="instruction()">
+                                        Details
+                                    </button>
+                                </td>
+                                    </tr>
+                                    <tr>
+                                        <td>46453</td>
+                                        <td>Philip Chaney</td>
+                                        <td>Philip Chaney</td>
+                                        <td>
+                                    <button class="btn btn-success btn-icon btn-icon-right"  (click)="instruction()">
+                                        Details
+                                    </button>
+                                </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
