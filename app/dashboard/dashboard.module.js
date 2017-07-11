@@ -10,6 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var ng2_modal_1 = require('ng2-modal');
+var forms_1 = require('@angular/forms');
 var dashboard_routes_1 = require('./dashboard.routes');
 var DashboardModule = (function () {
     function DashboardModule() {
@@ -17,7 +19,9 @@ var DashboardModule = (function () {
     DashboardModule = __decorate([
         core_1.NgModule({
             imports: [
-                router_1.RouterModule.forChild(dashboard_routes_1.MODULE_ROUTES)
+                router_1.RouterModule.forChild(dashboard_routes_1.MODULE_ROUTES),
+                ng2_modal_1.ModalModule,
+                forms_1.FormsModule
             ],
             declarations: [dashboard_routes_1.MODULE_COMPONENTS],
             exports: [dashboard_routes_1.MODULE_COMPONENTS]
