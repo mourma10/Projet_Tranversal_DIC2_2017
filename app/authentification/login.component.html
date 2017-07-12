@@ -1,27 +1,29 @@
-<div class="col-md-6 col-md-offset-2" style="padding-top: 5%;padding-left: 8%">
-    <div class="panel panel-primary" style="background-image: url('../assets/img/stock-trading.jpg')">
-        <div class="panel-body">
-            <div class="img logo">
-                <div class="logo-img img-rounded col-md-2">
-                    <img src=""/>
-                </div>
+<form name="form">
+    <div class="col-md-6 col-md-offset-2" style="padding-top: 5%;padding-left: 8%">
+        <div class="card">
+            <div class="card-header" data-background-color="red">
+                <h1 class="title">Trading</h1>
             </div>
-            <div class="col-md-6 col-md-offset-2">
-                <h1>Trading</h1>
-                <form name="form">
+            <div class="card-content">
+                <div class="col-md-6 col-md-offset-2">
                     <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" name="username" required/>
+                        <label>Login: {{username}}</label>
+                        <input type="text" class="form-control" title="name" name="username" [(ngModel)]="username"
+                               required/>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" name="password" required/>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="password" required/>
                     </div>
-                    <div class="form-group">
-                        <button (click)="login()" [disabled]="loading" class="btn btn-facebook">Login</button>
-                    </div>
-                </form>
+                </div>
             </div>
+            <div class="card-footer">
+                <div class="form-group pull-right">
+                    <button (click)="login()" class="btn btn-danger">Connexion</button>
+                    <a href="#">Mot de passe oublié?</a>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
+</form>

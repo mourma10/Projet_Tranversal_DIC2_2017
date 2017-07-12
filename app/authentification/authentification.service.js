@@ -10,20 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var rxjs_1 = require('rxjs');
 require('rxjs/add/operator/map');
 var AuthentificationService = (function () {
     function AuthentificationService(http) {
         this.http = http;
-        // set token if saved in local storage
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.token = currentUser && currentUser.token;
     }
     AuthentificationService.prototype.login = function (username, password) {
         var _this = this;
-        var headers = new http_1.Headers({ 'Authorization': 'Bearer' + this.token });
+        var headers = new http_1.Headers();
+        headers.append("Authorization", "Basic " + btoa(username + ":" + password));
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post('', JSON.stringify({ username: username, password: password }), options)
+        return this.http.post('http://localhost:8000/api/tokens', null, options)
             .map(function (response) {
+            console.log(response.json());
             var token = response.json() && response.json().token;
             if (token) {
                 _this.token = token;
@@ -33,10 +33,12 @@ var AuthentificationService = (function () {
             else {
                 return false;
             }
+        }).catch(function (error) {
+            console.log(error);
+            return rxjs_1.Observable.throw(error.json().error || 'Server error');
         });
     };
     AuthentificationService.prototype.logout = function () {
-        // clear token remove user from local storage to log user out
         this.token = null;
         localStorage.removeItem('currentUser');
     };

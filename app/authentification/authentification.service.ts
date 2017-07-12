@@ -8,17 +8,16 @@ export class AuthentificationService {
     public token: string;
 
     constructor(private http: Http) {
-        // set token if saved in local storage
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.token = currentUser && currentUser.token;
     }
 
     login(username: string, password: string): Observable<boolean> {
-        let headers = new Headers({'Authorization': 'Bearer' + this.token});
+        let headers = new Headers();
+        headers.append("Authorization", "Basic " + btoa(username + ":" + password));
         let options = new RequestOptions({headers: headers});
 
-        return this.http.post('', JSON.stringify({username: username, password: password}),options)
+        return this.http.post('http://localhost:8000/api/tokens', null, options)
             .map((response: Response) => {
+                console.log(response.json());
                 let token = response.json() && response.json().token;
                 if (token) {
                     this.token = token;
@@ -27,11 +26,13 @@ export class AuthentificationService {
                 } else {
                     return false;
                 }
+            }).catch((error: any) => {
+                console.log(error);
+                return Observable.throw(error.json().error || 'Server error')
             });
     }
 
     logout(): void {
-        // clear token remove user from local storage to log user out
         this.token = null;
         localStorage.removeItem('currentUser');
     }

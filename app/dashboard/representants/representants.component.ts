@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+//import {AjouterRepresentantsService} from './ajouterRepresentants.service';
 
 @Component({
     selector: 'representants-cmp',
@@ -7,4 +8,13 @@ import {Component} from '@angular/core';
 })
 
 export class RepresentantsComponent {
+    nom: string;
+    prenom: string;
+    email: string;
+    telephone: string;
+
+    /*constructor(ajouterRepresentantService: AjouterRepresentantsService) {
+    }*/
+
+
 }

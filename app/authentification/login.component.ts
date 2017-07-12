@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {User} from './useraccount.component';
 
 import {AuthentificationService} from './authentification.service';
 
@@ -10,7 +9,8 @@ import {AuthentificationService} from './authentification.service';
 })
 
 export class LoginComponent implements OnInit {
-    model: User;
+    username: string;
+    password: string;
     loading = false;
     error = '';
 
@@ -24,8 +24,7 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.router.navigate(['/dashboard']);
-        /*this.authenticationService.login(this.model.username, this.model.password)
+        this.authenticationService.login(this.username, this.password)
             .subscribe(result => {
                 if (result === true) {
                     this.router.navigate(['/dashboard']);
@@ -33,6 +32,6 @@ export class LoginComponent implements OnInit {
                     this.error = 'Username or password is incorrect';
                     this.loading = false;
                 }
-            });*/
+            });
     }
 }

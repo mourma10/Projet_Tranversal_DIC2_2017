@@ -34,30 +34,30 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Adresse Email</label>
-                                    <input type="email" class="form-control" >
+                                    <label class="control-label">Adresse Email: {{email}}</label>
+                                    <input type="email" class="form-control" name="email" [(ngModel)]="email">
                                 </div>
                             </div>
                         
                             <div class="col-md-6 col-md-offset-1">
                                 <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Prénom</label>
-                                    <input type="text" class="form-control" >
+                                    <label class="control-label">Prénom: {{prenom}}</label>
+                                    <input type="text" class="form-control" name="nom" [(ngModel)]="prenom">
                                 </div>
                             </div>
                         </div>
                         <div class="row">     
                             <div class="col-md-5">
                                 <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Nom</label>
-                                    <input type="text" class="form-control" >
+                                    <label class="control-label">Nom: {{nom}}</label>
+                                    <input type="text" class="form-control" name="nom" [(ngModel)]="nom">
                                 </div>
                             </div>
                              
                             <div class="col-md-6 col-md-offset-1">
                                 <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Numéro de Téléphone</label>
-                                    <input type="text" class="form-control" >
+                                    <label class="control-label">Numéro de Téléphone: {{telephone}}</label>
+                                    <input type="text" class="form-control" name="telephone" [(ngModel)]="telephone">
                                 </div>
                             </div>
                         </div>

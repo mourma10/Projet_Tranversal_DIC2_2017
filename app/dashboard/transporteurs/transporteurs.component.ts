@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
 })
 
 export class TransporteursComponent {
+    nom: string;
+    prenom: string;
+    email: string;
+    telephone: string;
+
 }
 
