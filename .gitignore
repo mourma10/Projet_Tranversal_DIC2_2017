@@ -35,5 +35,5 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
-/src/app/**/*.js
-/src/app/**/*.map
+/app/**/*.js
+/app/**/*.map
