@@ -14,18 +14,17 @@ import {TradingComponent} from './trading/trading.component';
 import {RepresentantsComponent} from './representants/representants.component';
 
 import {AuthGuard} from '../authentification/authentification.guard';
-import {ModalModule} from 'ng2-modal';
 
 export const MODULE_ROUTES: Route[] = [
     {path: 'login', component: LoginComponent},
-    {path: 'dashboard', component: HomeComponent},
-    {path: 'user', component: UserComponent},
-    {path: 'table', component: TableComponent},
-    {path: 'icons', component: IconsComponent},
-    {path: 'typography', component: TypographyComponent},
-    {path: 'transporteurs', component: TransporteursComponent},
-    {path: 'representants', component: RepresentantsComponent},
-    {path: 'trading', component: TradingComponent},
+    {path: 'dashboard', component: HomeComponent, canActivate: [AuthGuard]},
+    {path: 'user', component: UserComponent, canActivate: [AuthGuard]},
+    {path: 'table', component: TableComponent, canActivate: [AuthGuard]},
+    {path: 'icons', component: IconsComponent, canActivate: [AuthGuard]},
+    {path: 'typography', component: TypographyComponent, canActivate: [AuthGuard]},
+    {path: 'transporteurs', component: TransporteursComponent, canActivate: [AuthGuard]},
+    {path: 'representants', component: RepresentantsComponent, canActivate: [AuthGuard]},
+    {path: 'trading', component: TradingComponent, canActivate: [AuthGuard]},
     /*{path: 'notifications', component: NotificationsComponent},
     {path: 'maps', component: MapsComponent},
     {path: 'upgrade', component: UpgradeComponent},*/
