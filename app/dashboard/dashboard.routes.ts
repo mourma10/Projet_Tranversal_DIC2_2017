@@ -23,7 +23,7 @@ export const MODULE_ROUTES: Route[] = [
     {path: 'icons', component: IconsComponent, canActivate: [AuthGuard]},
     {path: 'typography', component: TypographyComponent, canActivate: [AuthGuard]},
     {path: 'transporteurs', component: TransporteursComponent, canActivate: [AuthGuard]},
-    {path: 'representants', component: RepresentantsComponent, canActivate: [AuthGuard]},
+    {path: 'representants', component: RepresentantsComponent},
     {path: 'trading', component: TradingComponent, canActivate: [AuthGuard]},
     /*{path: 'notifications', component: NotificationsComponent},
     {path: 'maps', component: MapsComponent},

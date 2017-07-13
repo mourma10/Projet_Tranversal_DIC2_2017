@@ -11,68 +11,75 @@
                     </button>
                 </div>
             </div>
-          
-            <modal #addReprModal
-       
-        modalClass="modal-lg modal-sm any-other-css-class"
-        [hideCloseButton]="false"
-        [closeOnEscape]="true"
-        [closeOnOutsideClick]="true"
-        (onOpen)="actionOnOpen()"
-        (onClose)="actionOnClose()"
-        (onSubmit)="actionOnSubmit()">
-                <modal-header>
-                    <h3>Ajouter un Representant</h3>
-                </modal-header>
-                <modal-content style="background-color: black">
-                    <div class="card">
-                <div class="card-header" data-background-color="blue">
-                    <h4 class="title">Saisir ses informations</h4>
-                </div>
-                <div class="card-content">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Adresse Email: {{email}}</label>
-                                    <input type="email" class="form-control" name="email" [(ngModel)]="email">
-                                </div>
-                            </div>
-                        
-                            <div class="col-md-6 col-md-offset-1">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Prénom: {{prenom}}</label>
-                                    <input type="text" class="form-control" name="nom" [(ngModel)]="prenom">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">     
-                            <div class="col-md-5">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Nom: {{nom}}</label>
-                                    <input type="text" class="form-control" name="nom" [(ngModel)]="nom">
-                                </div>
-                            </div>
-                             
-                            <div class="col-md-6 col-md-offset-1">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Numéro de Téléphone: {{telephone}}</label>
-                                    <input type="text" class="form-control" name="telephone" [(ngModel)]="telephone">
-                                </div>
-                            </div>
-                        </div>
+            <form>
+                <modal #addReprModal
 
-                        <div class="clearfix"></div>
-                    </form>
-                </div>
-            </div>
-                </modal-content>
-                <modal-footer>
-                   <button type="submit" class="btn btn-info">Ajouter</button>
-                   <button class="btn btn-danger" (click)="addReprModal.close()">Annuler</button>
-                        
-                </modal-footer>
-            </modal>
+                       modalClass="modal-lg"
+                       [hideCloseButton]="false"
+                       [closeOnEscape]="true"
+                       [closeOnOutsideClick]="true"
+                       (onOpen)="actionOnOpen()"
+                       (onClose)="actionOnClose()"
+                       (onSubmit)="ajouterRepresentant()">
+                    <modal-header>
+                        <h3>Ajouter un Representant</h3>
+                    </modal-header>
+                    <modal-content style="background-color: black">
+                        <div class="card">
+                            <div class="card-header" data-background-color="blue">
+                                <h4 class="title">Saisir ses informations</h4>
+                            </div>
+                            <div class="card-content">
+
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Adresse Email: {{email}}</label>
+                                            <input type="email" class="form-control" name="email" [(ngModel)]="email">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Prénom: {{prenom}}</label>
+                                            <input type="text" class="form-control" name="nom"
+                                                   [(ngModel)]="prenom">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Nom: {{nom}}</label>
+                                            <input type="text" class="form-control" name="nom"
+                                                   [(ngModel)]="nom">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Numéro de Téléphone:
+                                                {{telephone}}</label>
+                                            <input type="text" class="form-control" name="telephone"
+                                                   [(ngModel)]="telephone">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </modal-content>
+                    <modal-footer>
+                        <button (click)="ajouterRepresentant()" class="btn btn-info">
+                            Ajouter
+                        </button>
+                        <button class="btn btn-danger" (click)="addReprModal.close()">Annuler</button>
+
+                    </modal-footer>
+                </modal>
+            </form>
             <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="card-header" data-background-color="red">
@@ -93,12 +100,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Dakota Rice</td>
-                                <td>$36,738</td>
-                                <td>Niger</td>
-                                <td>OudOud-Turnhout</td>
+                            <tr *ngFor="let rep of representants">
+                                <td>{{rep.id}}</td>
+                                <td>{{rep.nomRepresentant}}</td>
+                                <td>{{rep.prenomRepresentant}}</td>
+                                <td>{{rep.email}}</td>
+                                <td>{{rep.telephone}}</td>
                                 <td>
                                     <button class="btn btn-info btn-icon btn-icon-right" type="submit">
                                         Details
@@ -110,7 +117,7 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
+                            <!--<tr>
                                 <td>2</td>
                                 <td>Minerva Hooper</td>
                                 <td>$23,789</td>
@@ -194,7 +201,7 @@
                                         <i class="material-icons">delete</i>
                                     </button>
                                 </td>
-                            </tr>
+                            </tr>-->
                             </tbody>
                         </table>
                     </div>

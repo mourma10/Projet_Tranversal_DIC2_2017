@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {MODULE_COMPONENTS, MODULE_ROUTES} from './dashboard.routes';
 import {AuthGuard} from '../authentification/authentification.guard';
 import {AuthentificationService} from '../authentification/authentification.service';
+import {RepresentantServices} from './representants/representants.service';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import {AuthentificationService} from '../authentification/authentification.serv
     ],
     providers: [
         AuthGuard,
-        AuthentificationService
+        AuthentificationService,
+        RepresentantServices
     ],
     declarations: [MODULE_COMPONENTS],
     exports: [MODULE_COMPONENTS]
