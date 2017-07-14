@@ -11,6 +11,7 @@ import {AuthentificationService} from './authentification.service';
 export class LoginComponent implements OnInit {
     username: string;
     password: string;
+    role: string;
     loading = false;
     error = '';
 
@@ -24,7 +25,14 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.authenticationService.login(this.username, this.password)
+        if (this.role == 'trader') {
+            this.router.navigate(['/dashboard']);
+        } else {
+            if (this.role == 'representant') {
+                this.router.navigate(['/dashboardrepresentant']);
+            }
+        }
+        /*this.authenticationService.login(this.username, this.password)
             .subscribe(result => {
                 if (result === true) {
                     this.router.navigate(['/dashboard']);
@@ -32,6 +40,6 @@ export class LoginComponent implements OnInit {
                     this.error = 'Username or password is incorrect';
                     this.loading = false;
                 }
-            });
+            });*/
     }
 }

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class AuthentificationService {
     public token: string;
+    public role: string;
 
     constructor(private http: Http) {
     }

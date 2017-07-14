@@ -2,6 +2,7 @@ import {Route} from '@angular/router';
 import {DashboardComponent} from './dashboard.component';
 import {LoginComponent} from '../authentification/login.component';
 import {HomeComponent} from './home/home.component';
+import {DashboardrepresentantComponent} from './dashboardrepresentant/dashboardrepresentant.component';
 import {UserComponent} from './user/user.component';
 import {IconsComponent} from './icons/icons.component';
 import {TableComponent} from './table/table.component';
@@ -17,14 +18,15 @@ import {AuthGuard} from '../authentification/authentification.guard';
 
 export const MODULE_ROUTES: Route[] = [
     {path: 'login', component: LoginComponent},
-    {path: 'dashboard', component: HomeComponent, canActivate: [AuthGuard]},
-    {path: 'user', component: UserComponent, canActivate: [AuthGuard]},
-    {path: 'table', component: TableComponent, canActivate: [AuthGuard]},
-    {path: 'icons', component: IconsComponent, canActivate: [AuthGuard]},
-    {path: 'typography', component: TypographyComponent, canActivate: [AuthGuard]},
-    {path: 'transporteurs', component: TransporteursComponent, canActivate: [AuthGuard]},
+    {path: 'dashboard', component: HomeComponent},
+    {path: 'dashboardrepresentant', component: DashboardrepresentantComponent},
+    {path: 'user', component: UserComponent},
+    {path: 'table', component: TableComponent},
+    {path: 'icons', component: IconsComponent},
+    {path: 'typography', component: TypographyComponent},
+    {path: 'transporteurs', component: TransporteursComponent},
     {path: 'representants', component: RepresentantsComponent},
-    {path: 'trading', component: TradingComponent, canActivate: [AuthGuard]},
+    {path: 'trading', component: TradingComponent},
     /*{path: 'notifications', component: NotificationsComponent},
     {path: 'maps', component: MapsComponent},
     {path: 'upgrade', component: UpgradeComponent},*/
@@ -41,6 +43,7 @@ export const MODULE_COMPONENTS = [
     TradingComponent,
     TransporteursComponent,
     RepresentantsComponent,
+    DashboardrepresentantComponent
     /*NotificationsComponent,
     MapsComponent,
     UpgradeComponent,*/

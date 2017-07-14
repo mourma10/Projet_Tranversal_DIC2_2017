@@ -8,7 +8,6 @@ import {ModalModule} from 'ng2-modal';
 import {AppComponent} from './app.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AuthentificationService} from './authentification/authentification.service';
-import {UserService} from './authentification/useraccount.service';
 import {AuthGuard} from './authentification/authentification.guard';
 
 import {DashboardModule} from './dashboard/dashboard.module';
@@ -34,7 +33,6 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
     declarations: [AppComponent, DashboardComponent],
     providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},
         AuthentificationService,
-        UserService,
         AuthGuard
     ],
     bootstrap: [AppComponent]

@@ -1,7 +1,5 @@
 import {Component, OnInit, trigger, state, style, transition, animate} from '@angular/core';
 import initDemo = require('../../../assets/js/charts.js');
-import {UserService} from '../../authentification/useraccount.service';
-import {User} from '../../authentification/useraccount.component';
 
 declare var $: any;
 
@@ -12,17 +10,10 @@ declare var $: any;
 })
 
 export class HomeComponent implements OnInit {
-    user: User;
-
-    constructor(private userService: UserService) {
+    constructor() {
     }
 
     ngOnInit() {
-        // get users from secure api end point
-        this.userService.getUser()
-            .subscribe(user => {
-                this.user = user;
-            });
         initDemo();
     }
 }
