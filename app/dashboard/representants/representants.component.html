@@ -72,7 +72,7 @@
                         </div>
                     </modal-content>
                     <modal-footer>
-                        <button (click)="ajouterRepresentant()" class="btn btn-info">
+                        <button (click)="ajouterRepresentant() && addReprModal.close()" class="btn btn-info">
                             Ajouter
                         </button>
                         <button class="btn btn-danger" (click)="addReprModal.close()">Annuler</button>
@@ -101,9 +101,8 @@
                             </thead>
                             <tbody>
                             <tr *ngFor="let rep of representants">
-                                <td>{{rep.id}}</td>
-                                <td>{{rep.nomRepresentant}}</td>
-                                <td>{{rep.prenomRepresentant}}</td>
+                                <td>{{rep.nom}}</td>
+                                <td>{{rep.prenom}}</td>
                                 <td>{{rep.email}}</td>
                                 <td>{{rep.telephone}}</td>
                                 <td>
@@ -117,91 +116,6 @@
                                     </button>
                                 </td>
                             </tr>
-                            <!--<tr>
-                                <td>2</td>
-                                <td>Minerva Hooper</td>
-                                <td>$23,789</td>
-                                <td>Curaçao</td>
-                                <td>Sinaai-Waas</td>
-                                <td>
-                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
-                                        Details
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
-                                        <i class="material-icons">delete</i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Sage Rodriguez</td>
-                                <td>$56,142</td>
-                                <td>Netherlands</td>
-                                <td>Baileux</td>
-                                <td>
-                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
-                                        Details
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
-                                        <i class="material-icons">delete</i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Philip Chaney</td>
-                                <td>$38,735</td>
-                                <td>Korea, South</td>
-                                <td>Overland Park</td>
-                                <td>
-                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
-                                        Details
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
-                                        <i class="material-icons">delete</i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Doris Greene</td>
-                                <td>$63,542</td>
-                                <td>Malawi</td>
-                                <td>Feldkirchen in Kärnten</td>
-                                <td>
-                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
-                                        Details
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
-                                        <i class="material-icons">delete</i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Mason Porter</td>
-                                <td>$78,615</td>
-                                <td>Chile</td>
-                                <td>Gloucester</td>
-                                <td>
-                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
-                                        Details
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
-                                        <i class="material-icons">delete</i>
-                                    </button>
-                                </td>
-                            </tr>-->
                             </tbody>
                         </table>
                     </div>

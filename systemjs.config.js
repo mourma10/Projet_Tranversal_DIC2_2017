@@ -40,8 +40,8 @@
       'angular2-jwt': {
           "defaultExtension": 'js'
       },
-      'ng2-modal': { 
-        "main": 'index.js', 
+      'ng2-modal': {
+        "main": 'index.js',
         "defaultExtension": 'js'
       }
     }
