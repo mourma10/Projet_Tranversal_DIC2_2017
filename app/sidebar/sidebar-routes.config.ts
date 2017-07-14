@@ -3,7 +3,8 @@ import {RouteInfo} from './sidebar.metadata';
 export const ROUTES: RouteInfo[] = [
     {path: 'dashboard', title: 'Dashboard', icon: 'dashboard', class: ''},
     {path: 'trading', title: 'Trading', icon: 'compare_arrows', class: ''},
-    //{path: 'dashboardrepresentant', title: 'Dashboard', icon: 'dashboard', class: ''},
+    //{path: 'dashboardrepresentant', title: 'Dashboard Representant', icon: 'dashboard', class: ''},
+    //{path: 'dashboardclient', title: 'Dashboard Client', icon: 'dashboard', class: ''},
     //{ path: 'user', title: 'User Profile',  icon:'person', class: '' },
     //{ path: 'table', title: 'Table List',  icon:'content_paste', class: '' },
     //{ path: 'typography', title: 'Typography',  icon:'library_books', class: '' },

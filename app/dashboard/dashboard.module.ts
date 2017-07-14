@@ -8,6 +8,7 @@ import {MODULE_COMPONENTS, MODULE_ROUTES} from './dashboard.routes';
 import {AuthGuard} from '../authentification/authentification.guard';
 import {AuthentificationService} from '../authentification/authentification.service';
 import {RepresentantServices} from './representants/representants.service';
+import {TransporteursServices} from "./transporteurs/transporteurs.service";
 
 @NgModule({
     imports: [
@@ -20,7 +21,8 @@ import {RepresentantServices} from './representants/representants.service';
     providers: [
         AuthGuard,
         AuthentificationService,
-        RepresentantServices
+        RepresentantServices,
+        TransporteursServices
     ],
     declarations: [MODULE_COMPONENTS],
     exports: [MODULE_COMPONENTS]
