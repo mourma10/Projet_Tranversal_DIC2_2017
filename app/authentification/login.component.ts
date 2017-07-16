@@ -37,14 +37,9 @@ export class LoginComponent implements OnInit {
                 }
 
         }
-        /*this.authenticationService.login(this.username, this.password)
-            .subscribe(result => {
-                if (result === true) {
-                    this.router.navigate(['/dashboard']);
-                } else {
-                    this.error = 'Username or password is incorrect';
-                    this.loading = false;
-                }
-            });*/
+        if(this.role == 'transporteur') {
+            this.router.navigate(['/dashboardtransporteur']);
+        }
     }
+}
 }

@@ -1,12 +1,9 @@
-/**
- * Created by BigAthepa on 14/07/2017.
- */
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class DashboardclientServices {
+export class TradingServices {
     public token: string;
 
     constructor(private http: Http) {
@@ -14,16 +11,26 @@ export class DashboardclientServices {
         this.token = currentUser && currentUser.token;
     }
 
-    ajouterCommande(nomRepresentant: string, marchandises ) {
+    /**
+	C'est bon maintenant la fonction doit avoir compte entete:
+		ajouterTrading(trading:any)
+	Et remplacer la partie JSON.stringify(...) par seulement trading(trading est deja sous format Json)
+    **/
+
+    ajouterTrading(libelleTrading: string, destinationTrading: string, datedebut: string, transporteur: string,
+                   representant:string,libellemarchandise: string[],qtemarchandise: string) {
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
         return this.http.post('', JSON.stringify(
             {
-                representant: {
-                    nomRepresentant: nomRepresentant,
-                },
-                marchandises: {
-                    marchandises : marchandises,
+                trading: {
+                    libelleTrading: libelleTrading,
+                    destinationTrading: destinationTrading,
+                    datedebut: datedebut,
+                    transporteur: transporteur,
+                    representant: representant,
+                    libellemarchandise: libellemarchandise,
+                    qtemarchandise: qtemarchandise
                 }
             }),
             options)
@@ -33,7 +40,7 @@ export class DashboardclientServices {
             });
     }
 
-    listerCommandes() {
+    listerTradings() {
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
         return this.http.get('', options)
