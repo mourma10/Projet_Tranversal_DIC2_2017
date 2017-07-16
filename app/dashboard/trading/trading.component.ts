@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, NavigationExtras} from '@angular/router';
 
 
 @Component({
@@ -9,12 +9,12 @@ import {Router} from '@angular/router';
 })
 
 export class TradingComponent {
+    trading = 'tradingo123';
 
     constructor(private router: Router,) {
     }
 
-instruction()
-        {
-        this.router.navigate(['/icons']);
-        }
+    instruction() {
+        this.router.navigate(['/icons'], {queryParams: {trading: this.trading}});
+    }
 }

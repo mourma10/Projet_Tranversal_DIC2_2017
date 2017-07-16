@@ -13,28 +13,28 @@ export class RepresentantsComponent implements OnInit {
     prenom: string;
     email: string;
     telephone: string;
-    //representant: Representant;
+    ajoutOk:Boolean = false;
     representants: Representant[] = [];
 
     constructor(private representantService: RepresentantServices) {
     }
 
     ngOnInit() {
-        /*this.representantService.listerRepresentants()
+        this.representantService.listerRepresentants()
             .subscribe(representants => {
                 this.representants = representants;
-            });*/
+            });
     }
 
     ajouterRepresentant() {
-        /*this.representantService.ajouterRepresentant(
+        this.representantService.ajouterRepresentant(
             this.nom,
             this.prenom,
             this.email,
             this.telephone)
             .subscribe(response => {
                 return response;
-            });*/
+            });
         let rep: Representant = {
             id: 1,
             nom: this.nom,
@@ -42,7 +42,7 @@ export class RepresentantsComponent implements OnInit {
             email: this.email,
             telephone: this.telephone
         };
-        console.log(rep.prenom);
+        this.ajoutOk = true;
         this.representants.push(rep);
     }
 

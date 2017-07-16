@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
                 if (this.role == 'client') {
                     this.router.navigate(['/dashboardclient']);
                 }
+            }
 
         }
         /*this.authenticationService.login(this.username, this.password)

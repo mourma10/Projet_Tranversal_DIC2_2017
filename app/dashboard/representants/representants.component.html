@@ -35,7 +35,8 @@
                                     <div class="col-md-5">
                                         <div class="form-group form-black label-floating is-empty">
                                             <label class="control-label">Adresse Email: {{email}}</label>
-                                            <input type="email" class="form-control" name="email" [(ngModel)]="email">
+                                            <input type="email" class="form-control" name="email" [(ngModel)]="email"
+                                                   required>
                                         </div>
                                     </div>
 
@@ -43,7 +44,7 @@
                                         <div class="form-group form-black label-floating is-empty">
                                             <label class="control-label">Prénom: {{prenom}}</label>
                                             <input type="text" class="form-control" name="nom"
-                                                   [(ngModel)]="prenom">
+                                                   [(ngModel)]="prenom" required>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +53,7 @@
                                         <div class="form-group form-black label-floating is-empty">
                                             <label class="control-label">Nom: {{nom}}</label>
                                             <input type="text" class="form-control" name="nom"
-                                                   [(ngModel)]="nom">
+                                                   [(ngModel)]="nom" required>
                                         </div>
                                     </div>
 
@@ -61,7 +62,7 @@
                                             <label class="control-label">Numéro de Téléphone:
                                                 {{telephone}}</label>
                                             <input type="text" class="form-control" name="telephone"
-                                                   [(ngModel)]="telephone">
+                                                   [(ngModel)]="telephone" required>
                                         </div>
                                     </div>
                                 </div>
