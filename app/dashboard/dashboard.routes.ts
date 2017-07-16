@@ -4,6 +4,7 @@ import {LoginComponent} from '../authentification/login.component';
 import {HomeComponent} from './home/home.component';
 import {DashboardrepresentantComponent} from './dashboardrepresentant/dashboardrepresentant.component';
 import {DashboardclientComponent} from './dashboardclient/dashboardclient.component';
+import { DashboardTransporteurComponent } from './dashboardtransporteur/dashboardtransporteur.component'
 import {UserComponent} from './user/user.component';
 import {IconsComponent} from './icons/icons.component';
 import {TableComponent} from './table/table.component';
@@ -21,7 +22,8 @@ export const MODULE_ROUTES: Route[] = [
     {path: 'login', component: LoginComponent},
     {path: 'dashboard', component: HomeComponent},
     {path: 'dashboardrepresentant', component: DashboardrepresentantComponent},
-    {path: 'dashboardclient', component: DashboardclientComponent},
+   // {path: 'dashboardclient', component: DashboardclientComponent},
+    {path: 'dashboardtransporteur', component: DashboardTransporteurComponent},
     {path: 'user', component: UserComponent},
     {path: 'table', component: TableComponent},
     {path: 'icons', component: IconsComponent},
@@ -46,7 +48,8 @@ export const MODULE_COMPONENTS = [
     TransporteursComponent,
     RepresentantsComponent,
     DashboardrepresentantComponent,
-    DashboardclientComponent
+    DashboardTransporteurComponent,
+    //DashboardclientComponent
     /*NotificationsComponent,
     MapsComponent,
     UpgradeComponent,*/
