@@ -4,7 +4,6 @@
         <div class="row">
             <div class="col-md-6"></div>
             <div class="col-md-3">
-
             </div>
             <div class="col-md-3">
                 <button class="btn btn-success btn-icon btn-icon-right" (click)="addcommande.open()">
@@ -13,8 +12,6 @@
                 </button>
                 <form>
                     <modal #addcommande
-
-
                            modalClass="modal-lg"
                            [hideCloseButton]="false"
                            [closeOnEscape]="true"
@@ -34,7 +31,6 @@
                                 </ul>
                             </div>
                             <div class="tab-content">
-
                                 <div id="one" class="tab-pane active">
                                     <div class="card">
                                         <div class="card-header" data-background-color="green">
@@ -44,9 +40,12 @@
                                             <div class="col-md-5 col-md-offset-1 ">
                                                 <label class="control-label">Representant</label>
                                                 <div class="form-group form-black label-floating is-empty">
-                                                    <select title="representant" class="form-control" id="rep">
+                                                    <select class="form-control" id="sel2" name="libelle"
+                                                            [(ngModel)]="nomRepresentant">
+                                                        <option>test</option>
+                                                        <option>test1</option>
                                                         <option *ngFor="let rep of representants">
-                                                            {{rep.prenomRepresentant}} {{rep.nomRepresentant}}
+                                                            {{rep.nomRepresentant}}
                                                         </option>
                                                     </select>
                                                 </div>

@@ -11,7 +11,6 @@ import {AuthentificationService} from './authentification.service';
 export class LoginComponent implements OnInit {
     username: string;
     password: string;
-    role: string;
     loading = false;
     error = '';
 
@@ -25,22 +24,29 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        if (this.role == 'trader') {
-            this.router.navigate(['/dashboard']);
-        } else {
-            if (this.role == 'representant') {
-                this.router.navigate(['/dashboardrepresentant']);
-            }
-            else {
-                if (this.role == 'client') {
-                    this.router.navigate(['/dashboardclient']);
-                }
-            }
+        this.authenticationService.login(this.username, this.password).subscribe(response => {
+            if (response === true) {
+                if (this.authenticationService.role == 'trader') {
+                    this.router.navigate(['/dashboard']);
+                } else {
+                    if (this.authenticationService.role == 'representant') {
+                        this.router.navigate(['/dashboardrepresentant']);
+                    } else {
+                        if (this.authenticationService.role == 'client') {
+                            this.router.navigate(['/dashboardclient']);
+                        } else {
+                            if (this.authenticationService.role == 'transporteur') {
+                                this.router.navigate(['/dashboardtransporteur']);
+                            }
+                        }
 
-        }
-        if(this.role == 'transporteur') {
-            this.router.navigate(['/dashboardtransporteur']);
-        }
+                    }
+
+                }
+            } else {
+                this.router.navigate(['/login']);
+            }
+        });
+
     }
-}
 }

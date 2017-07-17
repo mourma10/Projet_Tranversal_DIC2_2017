@@ -16,7 +16,7 @@ var TradingComponent = (function () {
         this.marchandises = [];
         this.tradings = [];
     }
-    TradingComponent.prototype.instruction = function () {
+    TradingComponent.prototype.detailTrading = function () {
         this.router.navigate(['/icons']);
     };
     TradingComponent.prototype.addMarchandise = function () {

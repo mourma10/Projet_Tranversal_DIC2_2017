@@ -36,7 +36,6 @@ export class RepresentantsComponent implements OnInit {
                 return response;
             });
         let rep: Representant = {
-            id: 1,
             nom: this.nom,
             prenom: this.prenom,
             email: this.email,
@@ -50,7 +49,7 @@ export class RepresentantsComponent implements OnInit {
 }
 
 interface Representant {
-    id: number;
+    id?: number;
     nom: string;
     prenom: string;
     email: string;

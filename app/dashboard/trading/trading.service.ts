@@ -11,29 +11,10 @@ export class TradingServices {
         this.token = currentUser && currentUser.token;
     }
 
-    /**
-	C'est bon maintenant la fonction doit avoir compte entete:
-		ajouterTrading(trading:any)
-	Et remplacer la partie JSON.stringify(...) par seulement trading(trading est deja sous format Json)
-    **/
-
-    ajouterTrading(libelleTrading: string, destinationTrading: string, datedebut: string, transporteur: string,
-                   representant:string,libellemarchandise: string[],qtemarchandise: string) {
+    ajouterTrading(trading: any) {
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
-        return this.http.post('', JSON.stringify(
-            {
-                trading: {
-                    libelleTrading: libelleTrading,
-                    destinationTrading: destinationTrading,
-                    datedebut: datedebut,
-                    transporteur: transporteur,
-                    representant: representant,
-                    libellemarchandise: libellemarchandise,
-                    qtemarchandise: qtemarchandise
-                }
-            }),
-            options)
+        return this.http.post('', trading, options)
             .map((response: Response) => {
                 let token = response.json() && response.json().token;
                 return !!token;

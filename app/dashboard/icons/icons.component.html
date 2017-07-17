@@ -2,7 +2,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-1 col-md-8 col-sm-8">
-                {{parametre}}
             </div>
             <div class="col-lg-5 col-md-8 col-sm-8">
                 <div class="card card-stats">
@@ -51,26 +50,26 @@
                     </button>
                 </div>
             </div>
+            <form>
+                <modal #addInstructionModal
 
-            <modal #addInstructionModal
+                       modalClass="modal-lg modal-sm any-other-css-class"
+                       [hideCloseButton]="false"
+                       [closeOnEscape]="true"
+                       [closeOnOutsideClick]="true"
+                       (onOpen)="actionOnOpen()"
+                       (onClose)="actionOnClose()"
+                       (onSubmit)="actionOnSubmit()">
+                    <modal-header>
+                        <h4>Emettre Instruction de Livraison</h4>
+                    </modal-header>
+                    <modal-content>
+                        <div class="card">
+                            <div class="card-header" data-background-color="orange">
+                                <h4 class="title">Saisir les informations</h4>
+                            </div>
+                            <div class="card-content">
 
-                   modalClass="modal-lg modal-sm any-other-css-class"
-                   [hideCloseButton]="false"
-                   [closeOnEscape]="true"
-                   [closeOnOutsideClick]="true"
-                   (onOpen)="actionOnOpen()"
-                   (onClose)="actionOnClose()"
-                   (onSubmit)="actionOnSubmit()">
-                <modal-header>
-                    <h4>Emettre Instruction de Livraison</h4>
-                </modal-header>
-                <modal-content>
-                    <div class="card">
-                        <div class="card-header" data-background-color="orange">
-                            <h4 class="title">Saisir les informations</h4>
-                        </div>
-                        <div class="card-content">
-                            <form>
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="form-group form-black label-floating is-empty">
@@ -94,69 +93,65 @@
                                 </div>
                                 <div class="row">
 
-                                    <form>
-                                        <div class="col-md-5">
-                                            <div class="form-group form-black label-floating is-empty">
-                                                <label class="control-label">Libellé Marchandise</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
 
-                                        <div class="col-md-5 col-md-offset-0">
-                                            <div class="form-group form-black label-floating is-empty">
-                                                <label class="control-label">Quantité</label>
-                                                <input type="text" class="form-control">
-                                            </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Libellé Marchandise</label>
+                                            <input type="text" class="form-control">
                                         </div>
-                                        <div class="col-md-1">
-                                            <div class="form-group form-black label-floating is-empty">
-                                                <button class="btn btn-success btn-icon btn-icon-left">
-                                                    <i class="material-icons">exposure_plus_1</i>
+                                    </div>
+
+                                    <div class="col-md-5 col-md-offset-0">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Quantité</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <button class="btn btn-success btn-icon btn-icon-left">
+                                                <i class="material-icons">exposure_plus_1</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                    <table class="table">
+                                        <thead class="text-danger">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>libelle</th>
+                                            <th>Quantite</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Sucre</td>
+                                            <td>100
+                                                <small>Tonnes</small>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-icon btn-icon-right"
+                                                        type="submit">
+                                                    <i class="material-icons">delete</i>
                                                 </button>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-
-                                        </div>
-                                        <table class="table">
-                                            <thead class="text-danger">
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>libelle</th>
-                                                <th>Quantite</th>
-                                                <th></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Sucre</td>
-                                                <td>100
-                                                    <small>Tonnes</small>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-icon btn-icon-right"
-                                                            type="submit">
-                                                        <i class="material-icons">delete</i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </form>
-
-
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
-                </modal-content>
-                <modal-footer>
-                    <button type="submit" class="btn btn-warning">Ajouter</button>
-                    <button class="btn btn-danger" (click)="addInstructionModal.close()">Annuler</button>
-                </modal-footer>
-            </modal>
+                    </modal-content>
+                    <modal-footer>
+                        <button type="submit" class="btn btn-warning">Ajouter</button>
+                        <button class="btn btn-danger" (click)="addInstructionModal.close()">Annuler</button>
+                    </modal-footer>
+                </modal>
+            </form>
 
         </div>
         <div class="row">
@@ -175,16 +170,14 @@
                                     <th>Destination</th>
                                     <th>Date de debut</th>
                                     <th>Transporteur</th>
-                                    <th>Représentant</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Dakar-Paris</td>
-                                    <td>Dakar, Guediawaye</td>
-                                    <td>10/10/2017</td>
-                                    <td> Ousmane Lam</td>
-                                    <td> Moussa Thiam</td>
+                                <tr *ngFor="let trading of tradings">
+                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.libelleTrading}}</td>
+                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.nomTransporteur}}</td>
+                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.dateDebut}}</td>
+                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.destination}}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -209,7 +202,6 @@
                                 <th>Représentant</th>
                                 <th>Transporteur</th>
                                 <th>Plus</th>
-
                             </tr>
                             </thead>
                             <tbody>
@@ -218,37 +210,7 @@
                                 <td>Dakota Rice</td>
                                 <td>Dakota Rice</td>
                                 <td>
-                                    <button class="btn btn-success btn-icon btn-icon-right" (click)="instruction()">
-                                        Details
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>kuih78</td>
-                                <td>Minerva Hooper</td>
-                                <td>Minerva Hooper</td>
-                                <td>
-                                    <button class="btn btn-success btn-icon btn-icon-right" (click)="instruction()">
-                                        Details
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>98564</td>
-                                <td>Sage Rodriguez</td>
-                                <td>Sage Rodriguez</td>
-                                <td>
-                                    <button class="btn btn-success btn-icon btn-icon-right" (click)="instruction()">
-                                        Details
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>46453</td>
-                                <td>Philip Chaney</td>
-                                <td>Philip Chaney</td>
-                                <td>
-                                    <button class="btn btn-success btn-icon btn-icon-right" (click)="instruction()">
+                                    <button class="btn btn-success btn-icon btn-icon-right" (click)="detailTrading()">
                                         Details
                                     </button>
                                 </td>

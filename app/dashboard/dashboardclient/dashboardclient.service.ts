@@ -16,8 +16,6 @@ export class DashboardclientServices {
 
 
     ajouterCommande(commande: any) {
-
-    ajouterCommande(nomRepresentant: string, marchandises ) {
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
         return this.http.post('', commande, options)
