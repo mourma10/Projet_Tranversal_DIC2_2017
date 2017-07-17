@@ -32,7 +32,6 @@ export class TradingComponent implements OnInit {
             })
     }
 
-
     detailTrading(trading: any) {
         this.router.navigate(['/icons'], {
             queryParams: {libtrading: trading.libelleTrading}
@@ -40,6 +39,7 @@ export class TradingComponent implements OnInit {
     }
 
     addMarchandise() {
+        
         let march: Marchandise = {
             libelleMarchandise: this.libelleMarchandise,
             quantite: this.quantite

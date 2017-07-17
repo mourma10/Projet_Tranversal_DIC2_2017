@@ -16,16 +16,16 @@ export class DashboardclientServices {
 
 
     ajouterCommande(commande: any) {
-        let headers = new Headers({'Authorization': 'Bearer ' + this.token});
-        let options = new RequestOptions({headers: headers});
-        return this.http.post('', commande, options)
-            .map((response: Response) => {
-                let token = response.json() && response.json().token;
-                return !!token;
-            });
+            let headers = new Headers({'Authorization': 'Bearer ' + this.token});
+            let options = new RequestOptions({headers: headers});
+            return this.http.post('', commande, options)
+                .map((response:Response) => {
+                    let token = response.json() && response.json().token;
+                    return !!token;
+                });
     }
 
-    listerCommandes() {
+    listerCommandes(){
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
         return this.http.get('', options)
