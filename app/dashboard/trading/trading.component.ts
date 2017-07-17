@@ -29,8 +29,7 @@ export class TradingComponent {
         this.router.navigate(['/icons'], {queryParams: {trading: this.trading}});
     }
 
-        this.router.navigate(['/icons']);
-    }
+        
     addMarchandise(){
         let march: Marchandise = {
             libelleMarchandise: this.libelleMarchandise,

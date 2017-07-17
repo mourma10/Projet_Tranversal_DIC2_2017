@@ -1,5 +1,6 @@
 import {Component, OnInit, trigger, state, style, transition, animate} from '@angular/core';
 //import initDemo = require('../../../assets/js/charts.js');
+import {Router, NavigationExtras} from '@angular/router';
 import {AjouterNoteDebitService} from './ajouternotedebit.service';
 
 declare var $: any;
@@ -16,7 +17,7 @@ export class DashboardTransporteurComponent {
     MontantNote: string;
     notes : NoteDebit[]=[];
 
-    constructor(ajouternotedebit: AjouterNoteDebitService) {
+    constructor(ajouternotedebit: AjouterNoteDebitService , private router: Router) {
     }
 
     instruction() {
