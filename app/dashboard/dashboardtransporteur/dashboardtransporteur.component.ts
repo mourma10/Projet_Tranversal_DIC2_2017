@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 //import initDemo = require('../../../assets/js/charts.js');
 import {Router, NavigationExtras} from '@angular/router';
 import {AjouterNoteDebitService} from './ajouternotedebit.service';
-import {Router} from "@angular/router";
 
 declare var $: any;
 

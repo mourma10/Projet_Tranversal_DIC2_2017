@@ -21,7 +21,7 @@ export class TransporteursComponent implements OnInit {
         email: this.email,
         telephone: this.telephone
     };
-    transporteurs: Transporteur[];
+    transporteurs: Transporteur[] = [];
 
     constructor(private transporteurService: TransporteursServices) {
     }

@@ -13,17 +13,18 @@ export class RepresentantsComponent implements OnInit {
     prenom: string;
     email: string;
     telephone: string;
-    ajoutOk:Boolean = false;
+    adresse: string;
+    ajoutOk: Boolean = false;
     representants: Representant[] = [];
 
     constructor(private representantService: RepresentantServices) {
     }
 
     ngOnInit() {
-        this.representantService.listerRepresentants()
+        /*this.representantService.listerRepresentants()
             .subscribe(representants => {
                 this.representants = representants;
-            });
+            });*/
     }
 
     ajouterRepresentant() {
@@ -31,6 +32,7 @@ export class RepresentantsComponent implements OnInit {
             this.nom,
             this.prenom,
             this.email,
+            this.adresse,
             this.telephone)
             .subscribe(response => {
                 return response;
@@ -39,6 +41,7 @@ export class RepresentantsComponent implements OnInit {
             nom: this.nom,
             prenom: this.prenom,
             email: this.email,
+            adresse: this.adresse,
             telephone: this.telephone
         };
         this.ajoutOk = true;
@@ -53,5 +56,6 @@ interface Representant {
     nom: string;
     prenom: string;
     email: string;
+    adresse: string;
     telephone: string;
 }
