@@ -7,6 +7,12 @@ import {FormsModule} from '@angular/forms';
 import {MODULE_COMPONENTS, MODULE_ROUTES} from './dashboard.routes';
 import {AuthGuard} from '../authentification/authentification.guard';
 import {AuthentificationService} from '../authentification/authentification.service';
+import {RepresentantServices} from './representants/representants.service';
+import {TransporteursServices} from "./transporteurs/transporteurs.service";
+import { AjouterNoteDebitService } from './dashboardtransporteur/ajouternotedebit.service';
+import {MarchandiseService} from "./marchandises.service";
+import {TradingServices} from "./trading/trading.service";
+import {DashboardclientServices} from "./dashboardclient/dashboardclient.service";
 
 @NgModule({
     imports: [
@@ -18,7 +24,13 @@ import {AuthentificationService} from '../authentification/authentification.serv
     ],
     providers: [
         AuthGuard,
-        AuthentificationService
+        AuthentificationService,
+        RepresentantServices,
+        MarchandiseService,
+        TradingServices,
+        DashboardclientServices,
+        TransporteursServices,
+        AjouterNoteDebitService,
     ],
     declarations: [MODULE_COMPONENTS],
     exports: [MODULE_COMPONENTS]

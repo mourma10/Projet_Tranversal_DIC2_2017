@@ -24,14 +24,29 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.authenticationService.login(this.username, this.password)
-            .subscribe(result => {
-                if (result === true) {
+        this.authenticationService.login(this.username, this.password).subscribe(response => {
+            if (response === true) {
+                if (this.authenticationService.role == 'trader') {
                     this.router.navigate(['/dashboard']);
                 } else {
-                    this.error = 'Username or password is incorrect';
-                    this.loading = false;
+                    if (this.authenticationService.role == 'representant') {
+                        this.router.navigate(['/dashboardrepresentant']);
+                    } else {
+                        if (this.authenticationService.role == 'client') {
+                            this.router.navigate(['/dashboardclient']);
+                        } else {
+                            if (this.authenticationService.role == 'transporteur') {
+                                this.router.navigate(['/dashboardtransporteur']);
+                            }
+                        }
+
+                    }
+
                 }
-            });
+            } else {
+                this.router.navigate(['/login']);
+            }
+        });
+
     }
 }

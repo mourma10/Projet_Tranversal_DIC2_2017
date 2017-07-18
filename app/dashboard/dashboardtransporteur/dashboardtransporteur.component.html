@@ -1,0 +1,229 @@
+<div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-1 col-md-8 col-sm-8">
+                </div>
+                <div class="col-lg-5 col-md-8 col-sm-8">
+                    <div class="card card-stats" >
+                        <div class="card-header" data-background-color="orange">
+                            <i class="material-icons">swap_vertical_circle</i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="category">Nombre d'instructions de livraison</h4>
+                            <h3 class="title">50</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <!--  <i class="material-icons text-danger">warning</i> --><a href="#pablo">Voir plus...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8 col-sm-8">
+                    <div class="card card-stats" >
+                        <div class="card-header" data-background-color="blue">
+                            <i class="material-icons">supervisor_account</i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="category">Nombre d'ordres de livraison</h4>
+                            <h3 class="title">10</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <!--  <i class="material-icons">date_range</i>--><a href="#pablo">Voir plus...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-4 col-md-8 col-sm-8">
+                    <div class="card card-stats" >
+                        <div class="card-header" data-background-color="red">
+                            <i class="material-icons">directions boat</i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="category">Nombre d</h4>
+                            <h3 class="title">75</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                               <a href="#pablo">Voir plus...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+
+
+            <form>
+                <modal #addnotedebit
+
+                       modalClass="modal-lg"
+                       [hideCloseButton]="false"
+                       [closeOnEscape]="true"
+                       [closeOnOutsideClick]="true"
+                       (onOpen)="actionOnOpen()"
+                       (onClose)="actionOnClose()"
+                       (onSubmit)="addnotedeb()">
+                    <modal-header>
+                        <h3>Ajouter une note de débit</h3>
+                    </modal-header>
+                    <modal-content style="">
+                        <div class="card">
+                            <div class="card-header" data-background-color="blue">
+                                <h4 class="title">Saisir ses informations</h4>
+                            </div>
+                            <div class="card-content">
+
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Libellé: {{LibelleNote}}</label>
+                                            <input type="text" class="form-control" name="LibelleNote" [(ngModel)]="LibelleNote">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Montant: {{MontantNote}}</label>
+                                            <input type="text" class="form-control" name="MontantNote"
+                                                   [(ngModel)]="MontantNote">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </modal-content>
+                    <modal-footer>
+                        <button (click)="addnotedeb()" class="btn btn-info">
+                            Ajouter
+                        </button>
+                        <button class="btn btn-danger" (click)="addReprModal.close()">Annuler</button>
+
+                    </modal-footer>
+                </modal>
+            </form>
+
+
+                <modal #generatefact
+
+                       modalClass="modal-lg"
+                       [hideCloseButton]="false"
+                       [closeOnEscape]="true"
+                       [closeOnOutsideClick]="true"
+                       (onOpen)="actionOnOpen()"
+                       (onClose)="actionOnClose()"
+                       (onSubmit)="ajouterRepresentant()">
+                    <modal-header>
+                        <h3>Générer la facture de trading</h3>
+                    </modal-header>
+                    <modal-content style="">
+                        <div class="card">
+                            <div class="card-header" data-background-color="blue">
+                                <h4 class="title">Saisir ses informations</h4>
+                            </div>
+                            <div class="card-content">
+                                <h3>Etes vous sûr(e) ?</h3>
+                               
+                            </div>
+                        </div>
+                    </modal-content>
+                    <modal-footer>
+                        <button (click)="ajouterRepresentant() && addReprModal.close()" class="btn btn-info">
+                            Valider
+                        </button>
+                        <button class="btn btn-danger" (click)="addReprModal.close()">Annuler</button>
+
+                    </modal-footer>
+                </modal>
+
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="card" >
+                        <div class="card-header" data-background-color="orange">
+                            <h3 class="title">Instructions de Livraison</h3>
+                        </div>
+                        <div class="card-content table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <tr>
+                                        <th>Libellé</th>
+                                        <th>Date de début</th>
+                                        <th>Représentant associé</th>
+                                        <th>Marchandises</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ETG4781</td>
+                                        <td>15/03/2018</td>
+                                        <td>Fousseinou Camara</td>
+                                        <td>
+                                            <button class="btn btn-success btn-icon btn-icon-right"  (click)="instruction()">
+                                                Details
+                                            </button>
+                                        </td>
+                                    </tr>                       
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row"> 
+                 </div>
+                
+                <div class="col-lg-12 col-md-12">
+                    <div class="card" >
+                        <div class="card-header" data-background-color="blue">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4">
+                                  <h3 class="title">Notes de Débit</h3>
+                                </div> 
+                                 <div class="col-lg-3 col-md-2 col-lg-offset-3">
+                                    <button class="btn btn-danger btn-icon btn-icon-right" (click)="addnotedebit.open()">
+                                        <i class="material-icons">create</i>
+                                        Ajouter une note de débit
+                                    </button>
+                                 </div> 
+                                 <div class="col-lg-2 col-md-2">
+                                    <button class="btn btn-primary btn-icon btn-icon-right" (click)="generatefact.open()">
+                                        <i class="material-icons">create</i>
+                                        Générer Facture Trading
+                                    </button>
+                                 </div>
+                                
+
+                            </div>
+                        </div>
+                        <div class="card-content table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <tr>
+                                        <th>Libellé</th>
+                                        <th>Montant</th>
+                                        <th>Plus</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let not of notes; let i=index">
+                                        <td>{{not.libelle}}</td>
+                                        <td>{{not.montant}}</td>
+                                        <td>
+                                            <button class="btn btn-danger btn-icon btn-icon-right" (click)="supprimernotedebit(i)">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                   
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>

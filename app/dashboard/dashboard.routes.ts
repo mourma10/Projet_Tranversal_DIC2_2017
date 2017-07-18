@@ -2,6 +2,9 @@ import {Route} from '@angular/router';
 import {DashboardComponent} from './dashboard.component';
 import {LoginComponent} from '../authentification/login.component';
 import {HomeComponent} from './home/home.component';
+import {DashboardrepresentantComponent} from './dashboardrepresentant/dashboardrepresentant.component';
+import {DashboardclientComponent} from './dashboardclient/dashboardclient.component';
+import {DashboardTransporteurComponent} from './dashboardtransporteur/dashboardtransporteur.component'
 import {UserComponent} from './user/user.component';
 import {IconsComponent} from './icons/icons.component';
 import {TableComponent} from './table/table.component';
@@ -14,11 +17,13 @@ import {TradingComponent} from './trading/trading.component';
 import {RepresentantsComponent} from './representants/representants.component';
 
 import {AuthGuard} from '../authentification/authentification.guard';
-import {ModalModule} from 'ng2-modal';
 
 export const MODULE_ROUTES: Route[] = [
     {path: 'login', component: LoginComponent},
     {path: 'dashboard', component: HomeComponent},
+    {path: 'dashboardrepresentant', component: DashboardrepresentantComponent},
+    {path: 'dashboardclient', component: DashboardclientComponent},
+    {path: 'dashboardtransporteur', component: DashboardTransporteurComponent},
     {path: 'user', component: UserComponent},
     {path: 'table', component: TableComponent},
     {path: 'icons', component: IconsComponent},
@@ -42,6 +47,9 @@ export const MODULE_COMPONENTS = [
     TradingComponent,
     TransporteursComponent,
     RepresentantsComponent,
+    DashboardrepresentantComponent,
+    DashboardTransporteurComponent,
+    DashboardclientComponent
     /*NotificationsComponent,
     MapsComponent,
     UpgradeComponent,*/

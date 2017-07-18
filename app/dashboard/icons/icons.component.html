@@ -1,11 +1,10 @@
-
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-1 col-md-8 col-sm-8">
             </div>
             <div class="col-lg-5 col-md-8 col-sm-8">
-                <div class="card card-stats" >
+                <div class="card card-stats">
                     <div class="card-header" data-background-color="orange">
                         <i class="material-icons">swap_vertical_circle</i>
                     </div>
@@ -22,7 +21,7 @@
             </div>
 
             <div class="col-lg-5 col-md-8 col-sm-8">
-                <div class="card card-stats" >
+                <div class="card card-stats">
                     <div class="card-header" data-background-color="green">
                         <i class="material-icons">supervisor_account</i>
                     </div>
@@ -51,50 +50,50 @@
                     </button>
                 </div>
             </div>
+            <form>
+                <modal #addInstructionModal
 
-            <modal #addInstructionModal
-       
-        modalClass="modal-lg modal-sm any-other-css-class"
-        [hideCloseButton]="false"
-        [closeOnEscape]="true"
-        [closeOnOutsideClick]="true"
-        (onOpen)="actionOnOpen()"
-        (onClose)="actionOnClose()"
-        (onSubmit)="actionOnSubmit()">
-                <modal-header>
-                    <h4>Emettre Instruction de Livraison</h4>
-                </modal-header>
-                <modal-content>
-                    <div class="card">
-                <div class="card-header" data-background-color="orange">
-                    <h4 class="title">Saisir les informations</h4>
-                </div>
-                <div class="card-content">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Libellé</label>
-                                    <input type="email" class="form-control" >
-                                </div>
+                       modalClass="modal-lg modal-sm any-other-css-class"
+                       [hideCloseButton]="false"
+                       [closeOnEscape]="true"
+                       [closeOnOutsideClick]="true"
+                       (onOpen)="actionOnOpen()"
+                       (onClose)="actionOnClose()"
+                       (onSubmit)="actionOnSubmit()">
+                    <modal-header>
+                        <h4>Emettre Instruction de Livraison</h4>
+                    </modal-header>
+                    <modal-content>
+                        <div class="card">
+                            <div class="card-header" data-background-color="orange">
+                                <h4 class="title">Saisir les informations</h4>
                             </div>
-                        </div>
-                        <div class="row">     
-                            <div class="col-md-5">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label>Transporteur</label>
-                                    <select  class="browser-default">
-                                        <option value="mamour">Mamour Tall</option>
-                                        <option value="adji">Adja Ndiaye</option>
-                                        <option value="thierno">Thierno Diop</option>
-                                        <option value="maodo" selected>Maodo Diagne</option>
-                                    </select>
+                            <div class="card-content">
+
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Libellé</label>
+                                            <input type="email" class="form-control">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                          
-                            <form>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label>Transporteur</label>
+                                            <select class="browser-default">
+                                                <option value="mamour">Mamour Tall</option>
+                                                <option value="adji">Adja Ndiaye</option>
+                                                <option value="thierno">Thierno Diop</option>
+                                                <option value="maodo" selected>Maodo Diagne</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+
                                     <div class="col-md-5">
                                         <div class="form-group form-black label-floating is-empty">
                                             <label class="control-label">Libellé Marchandise</label>
@@ -105,156 +104,122 @@
                                     <div class="col-md-5 col-md-offset-0">
                                         <div class="form-group form-black label-floating is-empty">
                                             <label class="control-label">Quantité</label>
-                                            <input type="text" class="form-control" >
+                                            <input type="text" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <div class="form-group form-black label-floating is-empty">
-                                        <button class="btn btn-success btn-icon btn-icon-left" >
-                                            <i class="material-icons">exposure_plus_1</i>
-                                        </button>
+                                            <button class="btn btn-success btn-icon btn-icon-left">
+                                                <i class="material-icons">exposure_plus_1</i>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
 
                                     </div>
-                                            <table class="table">
-                                                <thead class="text-danger">
-                                                <tr>
-                                                    <th>Id</th>
-                                                    <th>libelle</th>
-                                                    <th>Quantite</th>
-                                                    <th></th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Sucre</td>
-                                                    <td>100 <small>Tonnes</small></td>
-                                                    <td>
-                                                        <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
-                                                            <i class="material-icons">delete</i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                
-                            </form>
-                        
-                    
+                                    <table class="table">
+                                        <thead class="text-danger">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>libelle</th>
+                                            <th>Quantite</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Sucre</td>
+                                            <td>100
+                                                <small>Tonnes</small>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-icon btn-icon-right"
+                                                        type="submit">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-                </modal-content>
-                <modal-footer>
-                   <button type="submit" class="btn btn-warning" >Ajouter</button>
-                   <button class="btn btn-danger" (click)="addInstructionModal.close()">Annuler</button>     
-                </modal-footer>
-            </modal>
+                    </modal-content>
+                    <modal-footer>
+                        <button type="submit" class="btn btn-warning">Ajouter</button>
+                        <button class="btn btn-danger" (click)="addInstructionModal.close()">Annuler</button>
+                    </modal-footer>
+                </modal>
+            </form>
 
-        </div>    
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                        <div class="card-header" data-background-color="green">
-                            <h6 class="title">TRADING</h6>
-                        </div>
-                        <div class="card-content">
-                            <form>
-                                <h6 class="title">Informations Trading</h6>
-                                <table class="table">
-                                    <thead class="text-danger">
-                                    <tr>
-                                        <th>Libelle</th>
-                                        <th>Destination</th>
-                                        <th>Date de debut</th>
-                                        <th>Transporteur</th>
-                                        <th>Représentant</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Dakar-Paris</td>
-                                        <td>Dakar, Guediawaye</td>
-                                        <td>10/10/2017</td>
-                                        <td> Ousmane Lam</td>
-                                        <td> Moussa Thiam </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <div class="clearfix"></div>
-                            </form>
-                        </div>
+                    <div class="card-header" data-background-color="green">
+                        <h6 class="title">TRADING</h6>
                     </div>
+                    <div class="card-content">
+                        <form>
+                            <h6 class="title">Informations Trading</h6>
+                            <table class="table">
+                                <thead class="text-danger">
+                                <tr>
+                                    <th>Libelle</th>
+                                    <th>Destination</th>
+                                    <th>Date de debut</th>
+                                    <th>Transporteur</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let trading of tradings">
+                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.libelleTrading}}</td>
+                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.nomTransporteur}}</td>
+                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.dateDebut}}</td>
+                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.destination}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="row">
-          <div class="col-lg-12 col-md-12">
-                    <div class="card" >
-                        <div class="card-header" data-background-color="blue">
-                            <h3 class="title">Instructions de Livraison</h3>
-                        </div>
-                        <div class="card-content table-responsive">
-                            <table class="table table-hover">
-                                <thead class="text-warning">
-                                    <tr>
-                                        <th>Libellé</th>
-                                        <th>Représentant</th>
-                                        <th>Transporteur</th>
-                                        <th>Plus</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>INSTR4791</td>
-                                        <td>Dakota Rice</td>
-                                        <td>Dakota Rice</td>
-                                        <td>
-                                    <button class="btn btn-success btn-icon btn-icon-right"  (click)="instruction()">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h3 class="title">Instructions de Livraison</h3>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                            <tr>
+                                <th>Libellé</th>
+                                <th>Représentant</th>
+                                <th>Transporteur</th>
+                                <th>Plus</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>INSTR4791</td>
+                                <td>Dakota Rice</td>
+                                <td>Dakota Rice</td>
+                                <td>
+                                    <button class="btn btn-success btn-icon btn-icon-right" (click)="detailTrading()">
                                         Details
                                     </button>
                                 </td>
-                                    </tr>
-                                    <tr>
-                                        <td>kuih78</td>
-                                        <td>Minerva Hooper</td>
-                                        <td>Minerva Hooper</td>
-                                        <td>
-                                    <button class="btn btn-success btn-icon btn-icon-right"  (click)="instruction()">
-                                        Details
-                                    </button>
-                                </td>
-                                    </tr>
-                                    <tr>
-                                        <td>98564</td>
-                                        <td>Sage Rodriguez</td>
-                                        <td>Sage Rodriguez</td>
-                                        <td>
-                                    <button class="btn btn-success btn-icon btn-icon-right"  (click)="instruction()">
-                                        Details
-                                    </button>
-                                </td>
-                                    </tr>
-                                    <tr>
-                                        <td>46453</td>
-                                        <td>Philip Chaney</td>
-                                        <td>Philip Chaney</td>
-                                        <td>
-                                    <button class="btn btn-success btn-icon btn-icon-right"  (click)="instruction()">
-                                        Details
-                                    </button>
-                                </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>

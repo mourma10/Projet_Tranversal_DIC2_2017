@@ -1,0 +1,392 @@
+<div class="main-content">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-3">
+                <button class="btn btn-primary btn-icon btn-icon-right" (click)="addclient.open()">
+                    <i class="material-icons">create</i>
+                    Ajouter Client
+                </button>
+                <form>
+                    <modal #addclient
+
+                           modalClass="modal-lg"
+                           [hideCloseButton]="false"
+                           [closeOnEscape]="true"
+                           [closeOnOutsideClick]="true"
+                           (onOpen)="actionOnOpen()"
+                           (onClose)="actionOnClose()"
+                           (onSubmit)="actionOnSubmit()">
+                        <modal-header>
+                            <h3>Ajouter un Client</h3>
+                        </modal-header>
+                        <modal-content style="background-color: black">
+                            <div class="card">
+                                <div class="card-header" data-background-color="green">
+                                    <h4 class="title">Saisir ses informations</h4>
+                                </div>
+                                <div class="card-content">
+
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group form-black label-floating is-empty">
+                                                <label class="control-label">Adresse Email: {{email}}</label>
+                                                <input type="email" class="form-control" name="email"
+                                                       [(ngModel)]="email">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-md-offset-1">
+                                            <div class="form-group form-black label-floating is-empty">
+                                                <label class="control-label">Prénom: {{prenom}}</label>
+                                                <input type="text" class="form-control" name="nom"
+                                                       [(ngModel)]="prenom">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group form-black label-floating is-empty">
+                                                <label class="control-label">Nom: {{nom}}</label>
+                                                <input type="text" class="form-control" name="nom"
+                                                       [(ngModel)]="nom">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-md-offset-1">
+                                            <div class="form-group form-black label-floating is-empty">
+                                                <label class="control-label">Numéro de Téléphone:
+                                                    {{telephone}}</label>
+                                                <input type="text" class="form-control" name="telephone"
+                                                       [(ngModel)]="telephone">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                </div>
+                            </div>
+                        </modal-content>
+                        <modal-footer>
+                            <button (click)="ajouter()" class="btn btn-info">
+                                Ajouter
+                            </button>
+                            <button class="btn btn-danger" (click)="addclient.close()">Annuler</button>
+
+                        </modal-footer>
+                    </modal>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-success btn-icon btn-icon-right" (click)="addodrelivraison.open()">
+                    <i class="material-icons">create</i>
+                    Ordre de Livraison
+                </button>
+                <form>
+                    <modal #addodrelivraison
+
+
+                           modalClass="modal-lg"
+                           [hideCloseButton]="false"
+                           [closeOnEscape]="true"
+                           [closeOnOutsideClick]="true"
+                           (onOpen)="actionOnOpen()"
+                           (onClose)="addodrelivraison.close()"
+                           (onSubmit)="actionOnSubmit()">
+                        <modal-header>
+                            <h2>Emettre Ordre de Livraison</h2>
+                        </modal-header>
+                        <modal-content>
+                            <div class="nav">
+                                <ul class="nav nav-tabs navbar-btn col-lg-12">
+                                    <li class="active"><a href="#one" data-toggle="tab">Informations</a></li>
+                                    <li><a href="#two" data-toggle="tab">Marchandises</a></li>
+                                    <li><a href="#three" data-toggle="tab">Terminer</a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+
+                                <div id="one" class="tab-pane active">
+                                    <div class="card">
+                                        <div class="card-header" data-background-color="green">
+                                            <h4 class="title">Saisir ses informations</h4>
+                                        </div>
+                                        <div class="card-content">
+
+                                            <div class="col-md-3 ">
+                                                <div class="form-group form-black label-floating is-empty">
+                                                    <label class="control-label">id</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-md-offset-1 ">
+                                                <div class="form-group form-black label-floating is-empty">
+                                                    <label class="control-label">Client</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="two" class="tab-pane">
+                                    <div class="card">
+                                        <div class="card-header" data-background-color="green">
+                                            <h6 class="title">Saisir les marchandises</h6>
+                                        </div>
+                                        <div class="card-content">
+
+                                            <div class="col-md-5">
+                                                <div class="form-group form-black label-floating is-empty">
+                                                    <label class="control-label">Libellé</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-md-offset-1">
+                                                <div class="form-group form-black label-floating is-empty">
+                                                    <label class="control-label">Quantité</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <button class="btn btn-success btn-icon btn-icon-left">
+                                                    <i class="material-icons">exposure_plus_1</i>
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3">
+
+                                            </div>
+                                            <table class="table">
+                                                <thead class="text-danger">
+                                                <tr>
+                                                    <th>libelle</th>
+                                                    <th>Quantite</th>
+                                                    <th></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Sucre</td>
+                                                    <td>100
+                                                        <small>Tonnes</small>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-danger btn-icon btn-icon-right"
+                                                                type="submit">
+                                                            <i class="material-icons">delete</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="three" class="tab-pane">
+                                    <div class="card">
+                                        <div class="card-header" data-background-color="green">
+                                            <h6 class="title">Resume</h6>
+                                        </div>
+                                        <div class="card-content">
+
+                                            <h6 class="title">Informations</h6>
+                                            <table class="table">
+                                                <thead class="text-danger">
+                                                <tr>
+                                                    <th>libelle</th>
+                                                    <th>Client</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Dakar-Paris</td>
+                                                    <td>Dakar, Guediawaye</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <h6 class="title">Informations marchandises</h6>
+                                            <table class="table">
+                                                <thead class="text-danger">
+                                                <tr>
+                                                    <th>libelle</th>
+                                                    <th>Quantite</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Sucre</td>
+                                                    <td>100
+                                                        <small>Tonnes</small>
+                                                    </td>
+
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </modal-content>
+                        <modal-footer>
+                            <div class="col-md-5  ">
+                                <div class="form-group form-black label-floating is-empty pull-left">
+                                    <button class="btn btn-danger" (click)="addodrelivraison.close()">Annuler</button>
+                                </div>
+                                <div class="form-group form-black label-floating is-empty pull-rigth">
+                                    <button type="submit" class="btn btn-success">Valider</button>
+                                </div>
+
+                            </div>
+                            <!--<div class="col-md-6 ">
+                                <div class="form-group form-black label-floating is-empty pull-rigth">
+                                    <button type="submit" class="btn btn-success" (click)="MarchandisesModal.open()">Suivant
+                                    </button>
+                                </div>
+                            </div>-->
+
+                        </modal-footer>
+                    </modal>
+                </form>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="orange">
+                        <i class="material-icons">swap_vertical_circle</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="category">Instruction de Livraison</h4>
+                        <h3 class="title">50</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <!--  <i class="material-icons text-danger">warning</i> --><a href="#pablo">Voir plus...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="red">
+                        <i class="material-icons">directions boat</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="category">Ordres de Livraison</h4>
+                        <h3 class="title">75</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <!-- <i class="material-icons">local_offer</i>--><a href="#pablo">Voir plus...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!--<div style="margin-left:75%"> <h3>Nom Trading</h3> </div>-->
+
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="orange">
+                        <h3 class="title">Stock</h3>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                            <tr>
+                                <th>Libellé</th>
+                                <th>Stock initial</th>
+                                <th>Stock courant</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Riz</td>
+                                <td>100
+                                    <small>Tonnes</small>
+                                </td>
+                                <td>40
+                                    <small>Tonnes</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sucre</td>
+                                <td>30
+                                    <small>Tonnes</small>
+                                </td>
+                                <td>2
+                                    <small>Tonnes</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Oignons</td>
+                                <td>80
+                                    <small>Tonnes</small>
+                                </td>
+                                <td>30
+                                    <small>Tonnes</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mais</td>
+                                <td>60
+                                    <small>Tonnes</small>
+                                </td>
+                                <td>10
+                                    <small>Tonnes</small>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h3 class="title">Commandes</h3>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                            <tr>
+                                <th>Client</th>
+                                <th>Marchandises</th>
+                                <th>Quantite</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Dédouanement</td>
+                                <td>Dakota Rice</td>
+                            </tr>
+                            <tr>
+                                <td>Entreposage</td>
+                                <td>Minerva Hooper</td>
+                            </tr>
+                            <tr>
+                                <td>Carburant</td>
+                                <td>Sage Rodriguez</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Philip Chaney</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
