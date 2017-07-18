@@ -1,7 +1,7 @@
-import {Component, OnInit, trigger, state, style, transition, animate} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 //import initDemo = require('../../../assets/js/charts.js');
+import {Router, NavigationExtras} from '@angular/router';
 import {AjouterNoteDebitService} from './ajouternotedebit.service';
-import {Router} from '@angular/router';
 
 declare var $: any;
 
@@ -15,34 +15,34 @@ export class DashboardTransporteurComponent {
 
     LibelleNote: string;
     MontantNote: string;
-    notes : NoteDebit[]=[];
+    notes: NoteDebit[] = [];
 
-    constructor(ajouternotedebit: AjouterNoteDebitService,
-                private router:Router) {
-    }
+
+
+    constructor(private router: Router, ajouternotedebit: AjouterNoteDebitService) {}   
 
     instruction() {
         this.router.navigate(['/dashboardtransporteur']);
     }
 
-    addnotedeb(){
-       let note: NoteDebit ={
-          libelle: this.LibelleNote,
-          montant: this.MontantNote
-       };
+    addnotedeb() {
+        let note: NoteDebit = {
+            libelle: this.LibelleNote,
+            montant: this.MontantNote
+        };
 
-       this.notes.push(note);
-       console.log(note);
+        this.notes.push(note);
+        console.log(note);
     }
 
-    supprimernotedebit(i){
-      this.notes.splice(i,1);
-      console.log(i+" supprimée");
+    supprimernotedebit(i) {
+        this.notes.splice(i, 1);
+        console.log(i + " supprimée");
     }
 
 }
 
-interface NoteDebit{
+interface NoteDebit {
     libelle: string;
     montant: string;
 }

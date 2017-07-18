@@ -13,46 +13,58 @@ export class RepresentantsComponent implements OnInit {
     prenom: string;
     email: string;
     telephone: string;
-    //representant: Representant;
+    adresse: string;
+    ajoutOk: Boolean = false;
     representants: Representant[] = [];
 
     constructor(private representantService: RepresentantServices) {
     }
 
     ngOnInit() {
-        /*this.representantService.listerRepresentants()
+        let self = this;
+        this.representantService.listerRepresentants()
             .subscribe(representants => {
-                this.representants = representants;
-            });*/
+                self.representants = representants.items;
+            });
     }
 
     ajouterRepresentant() {
-        /*this.representantService.ajouterRepresentant(
+        this.representantService.ajouterRepresentant(
             this.nom,
             this.prenom,
             this.email,
+            this.adresse,
             this.telephone)
             .subscribe(response => {
-                return response;
-            });*/
-        let rep: Representant = {
-            id: 1,
-            nom: this.nom,
-            prenom: this.prenom,
-            email: this.email,
-            telephone: this.telephone
-        };
-        console.log(rep.prenom);
-        this.representants.push(rep);
+                if (response === true) {
+                    let rep: Representant = {
+                        nomRepresentant: this.nom,
+                        prenomRepresentant: this.prenom,
+                        adresse: this.adresse,
+                        tel: this.telephone,
+                        user: {
+                            username: this.email,
+                            email: this.email,
+                        },
+                    };
+                    this.representants.push(rep);
+                }
+            });
+
     }
 
 
 }
 
 interface Representant {
-    id: number;
-    nom: string;
-    prenom: string;
-    email: string;
-    telephone: string;
+    id?: number;
+    nomRepresentant: string;
+    prenomRepresentant: string;
+    user: {
+        username: string;
+        email: string;
+        roles?: any;
+    };
+    adresse: string;
+    tel: string;
 }

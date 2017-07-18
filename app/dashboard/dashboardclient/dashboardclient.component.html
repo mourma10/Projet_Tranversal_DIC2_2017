@@ -4,7 +4,6 @@
         <div class="row">
             <div class="col-md-6"></div>
             <div class="col-md-3">
-
             </div>
             <div class="col-md-3">
                 <button class="btn btn-success btn-icon btn-icon-right" (click)="addcommande.open()">
@@ -13,8 +12,6 @@
                 </button>
                 <form>
                     <modal #addcommande
-
-
                            modalClass="modal-lg"
                            [hideCloseButton]="false"
                            [closeOnEscape]="true"
@@ -34,25 +31,23 @@
                                 </ul>
                             </div>
                             <div class="tab-content">
-
                                 <div id="one" class="tab-pane active">
                                     <div class="card">
                                         <div class="card-header" data-background-color="green">
-                                            <h4 class="title">Saisir ses informations</h4>
+                                            <h4 class="title">Nom du representant</h4>
                                         </div>
                                         <div class="card-content">
-
-
-
                                             <div class="col-md-5 col-md-offset-1 ">
                                                 <label class="control-label">Representant</label>
                                                 <div class="form-group form-black label-floating is-empty">
-                                                        <select class="form-control" id="sel1">
-                                                            <option>Ousmane Lam</option>
-                                                            <option>Bigathep</option>
-                                                            <option>joker</option>
-                                                            <option>bonucci</option>
-                                                        </select>
+                                                    <select class="form-control" id="sel2" name="libelle"
+                                                            [(ngModel)]="nomRepresentant">
+                                                        <option>test</option>
+                                                        <option>test1</option>
+                                                        <option *ngFor="let rep of representants">
+                                                            {{rep.nomRepresentant}}
+                                                        </option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>
@@ -70,11 +65,13 @@
                                             <div class="col-md-5">
                                                 <label class="control-label">Disponible</label>
                                                 <div class="form-group form-black label-floating is-empty">
-                                                    <select class="form-control" id="sel1">
-                                                        <option>Sucre</option>
-                                                        <option>Riz</option>
-                                                        <option>Pain</option>
-                                                        <option>Mayonnaise</option>
+                                                    <select class="form-control" id="sel1" name="libelle"
+                                                            [(ngModel)]="libelle">
+                                                        <option>test</option>
+                                                        <option>test1</option>
+                                                        <option *ngFor="let marchandise of marchandises">
+                                                            {{marchandise.libelle}}
+                                                        </option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -82,12 +79,14 @@
                                             <div class="col-md-6 col-md-offset-1">
                                                 <label class="control-label">Quantité</label>
                                                 <div class="form-group form-black label-floating is-empty">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="quantite"
+                                                           [(ngModel)]="quantite">
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <button class="btn btn-success btn-icon btn-icon-left">
-                                                    <i class="material-icons">exposure_plus_1</i>
+                                                <button (click)="ajouterMarchandise()"
+                                                        class="btn btn-success btn-icon btn-icon-left">
+                                                    Ajouter
                                                 </button>
                                             </div>
                                             <div class="col-md-3">
@@ -98,15 +97,12 @@
                                                 <tr>
                                                     <th>libelle</th>
                                                     <th>Quantite</th>
-                                                    <th></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>Sucre</td>
-                                                    <td>100
-                                                        <small>Tonnes</small>
-                                                    </td>
+                                                <tr *ngFor="let marchClient of marchandisesClient">
+                                                    <td>{{marchClient.libelle}}</td>
+                                                    <td>{{marchClient.quantite}}</td>
                                                     <td>
                                                         <button class="btn btn-danger btn-icon btn-icon-right"
                                                                 type="submit">
@@ -137,7 +133,7 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>Ousmane Lam</td>
+                                                    <td>{{nomRepresentant}}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -150,9 +146,9 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>Sucre</td>
-                                                    <td>100
+                                                <tr *ngFor="let marchClient of marchandisesClient">
+                                                    <td>{{marchClient.libelle}}</td>
+                                                    <td>{{marchClient.quantite}}
                                                         <small>Tonnes</small>
                                                     </td>
 
@@ -172,7 +168,8 @@
                                     <button class="btn btn-danger" (click)="addcommande.close()">Annuler</button>
                                 </div>
                                 <div class="form-group form-black label-floating is-empty pull-rigth">
-                                    <button type="submit" class="btn btn-success">Valider</button>
+                                    <button type="submit" (click)="ajouterCommande()" class="btn btn-success">Valider
+                                    </button>
                                 </div>
 
                             </div>
@@ -236,73 +233,68 @@
                             <tr>
                                 <th>Representant</th>
                                 <th>Marchandises</th>
-                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Ismaila Sarr</td>
-                                <td><button class="btn btn-success btn-icon btn-icon-right"  (click)="marchandises.open()">
-                                    Details
-                                </button>
-                                    <form>
-                                        <modal #marchandises
+                            <tr *ngFor="let commande of commandes">
+                                <td>{{commande.nomRepresentant}}</td>
+                                <td>
+                                    <button class="btn btn-success btn-icon btn-icon-right"
+                                            (click)="marchandises.open()">
+                                        Details
+                                    </button>
+                                    <modal #marchandises
 
-                                               modalClass="modal-lg"
-                                               [hideCloseButton]="false"
-                                               [closeOnEscape]="true"
-                                               [closeOnOutsideClick]="true"
-                                               (onOpen)="actionOnOpen()"
-                                               (onClose)="actionOnClose()"
-                                               (onSubmit)="actionOnSubmit()">
-                                            <modal-header>
-                                                <h3>Details Marchandises</h3>
-                                            </modal-header>
-                                            <modal-content style="background-color: black">
-                                                <div class="card">
-                                                    <div class="card-header" data-background-color="green">
-                                                        <h4 class="title">Marchandises</h4>
-                                                    </div>
-                                                    <div class="card-content">
-                                                        <table class="table">
-                                                            <thead class="text-danger">
-                                                            <tr>
-                                                                <th>libelle</th>
-                                                                <th>Quantite</th>
-                                                                <th></th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <td>Sucre</td>
-                                                                <td>100
-                                                                    <small>Tonnes</small>
-                                                                </td>
-                                                                <td>
-                                                                    <button class="btn btn-danger btn-icon btn-icon-right"
-                                                                            type="submit">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <div class="clearfix"></div>
-
-                                                    </div>
+                                           modalClass="modal-lg"
+                                           [hideCloseButton]="false"
+                                           [closeOnEscape]="true"
+                                           [closeOnOutsideClick]="true"
+                                           (onOpen)="actionOnOpen()"
+                                           (onClose)="actionOnClose()"
+                                           (onSubmit)="actionOnSubmit()">
+                                        <modal-header>
+                                            <h3>Details Marchandises</h3>
+                                        </modal-header>
+                                        <modal-content style="background-color: black">
+                                            <div class="card">
+                                                <div class="card-header" data-background-color="green">
+                                                    <h4 class="title">Marchandises</h4>
                                                 </div>
-                                            </modal-content>
-                                            <modal-footer>
-                                                <button class="btn btn-danger" (click)="marchandises.close()">Fermer</button>
+                                                <div class="card-content">
+                                                    <table class="table">
+                                                        <thead class="text-danger">
+                                                        <tr>
+                                                            <th>libelle</th>
+                                                            <th>Quantite</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr *ngFor="let march of commande.marchandisesClient">
+                                                            <td>{{march.libelle}}</td>
+                                                            <td>{{march.quantite}}
+                                                                <small>Tonnes</small>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="clearfix"></div>
 
-                                            </modal-footer>
-                                        </modal>
-                                    </form>
+                                                </div>
+                                            </div>
+                                        </modal-content>
+                                        <modal-footer>
+                                            <button class="btn btn-danger" (click)="marchandises.close()">Fermer
+                                            </button>
+
+                                        </modal-footer>
+                                    </modal>
                                 </td>
-                                <td><button class="btn btn-danger btn-icon btn-icon-right"
+                                <td>
+                                    <button class="btn btn-danger btn-icon btn-icon-right"
                                             type="submit">
-                                    <i class="material-icons">delete</i>
-                                </button></td>
+                                        <i class="material-icons">delete</i>
+                                    </button>
+                                </td>
                             </tr>
 
                             </tbody>

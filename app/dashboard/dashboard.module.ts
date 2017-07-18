@@ -10,6 +10,9 @@ import {AuthentificationService} from '../authentification/authentification.serv
 import {RepresentantServices} from './representants/representants.service';
 import {TransporteursServices} from "./transporteurs/transporteurs.service";
 import { AjouterNoteDebitService } from './dashboardtransporteur/ajouternotedebit.service';
+import {MarchandiseService} from "./marchandises.service";
+import {TradingServices} from "./trading/trading.service";
+import {DashboardclientServices} from "./dashboardclient/dashboardclient.service";
 
 @NgModule({
     imports: [
@@ -23,6 +26,9 @@ import { AjouterNoteDebitService } from './dashboardtransporteur/ajouternotedebi
         AuthGuard,
         AuthentificationService,
         RepresentantServices,
+        MarchandiseService,
+        TradingServices,
+        DashboardclientServices,
         TransporteursServices,
         AjouterNoteDebitService,
     ],

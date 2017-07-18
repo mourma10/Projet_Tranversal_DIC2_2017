@@ -59,8 +59,15 @@
                                         <div class="col-md-4 col-md-offset-1">
                                             <div class="form-group form-black label-floating is-empty">
                                                 <label class="control-label">Transporteur</label>
-                                                <input type="text" name="nomTransporteur" [(ngModel)]="nomTransporteur"
-                                                       class="form-control">
+                                                <select class="form-control" id="trsp" name="nomTransporteur"
+                                                        [(ngModel)]="nomTransporteur">
+                                                    <option>test</option>
+                                                    <option>test1</option>
+                                                    <option *ngFor="let transporteurs of transporteurs">
+                                                        {{transporteur.prenomTransporteur}}
+                                                        {{transporteur.nomTransporteur}}
+                                                    </option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-md-offset-1">
@@ -70,7 +77,6 @@
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
-
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +104,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-9">
-                                            <button (click)="addMarchandise()" class="btn btn-success btn-icon btn-icon-left">
+                                            <button (click)="addMarchandise()"
+                                                    class="btn btn-success btn-icon btn-icon-left">
                                                 <i class="material-icons">exposure_plus_1</i> Ajouter
                                             </button>
                                         </div>
@@ -189,7 +196,8 @@
                                 <button class="btn btn-danger" (click)="addTradingModal.close()">Annuler</button>
                             </div>
                             <div class="form-group form-black label-floating is-empty pull-rigth">
-                                <button type="submit" (click)="ajouterTrading()" class="btn btn-success">Valider</button>
+                                <button type="submit" (click)="ajouterTrading()" class="btn btn-success">Valider
+                                </button>
                             </div>
 
                         </div>
@@ -222,13 +230,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr  *ngFor="let trading of tradings">
+                            <tr *ngFor="let trading of tradings">
                                 <td>{{trading.libelleTrading}}</td>
                                 <td>{{trading.nomTransporteur}}</td>
                                 <td>{{trading.destination}}</td>
                                 <td>{{trading.dateDebut}}</td>
                                 <td>
-                                    <button class="btn btn-success btn-icon btn-icon-right" (click)="instruction()">
+                                    <button class="btn btn-success btn-icon btn-icon-right"
+                                            (click)="detailTrading(trading)">
                                         Details
                                     </button>
                                 </td>

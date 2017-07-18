@@ -11,18 +11,22 @@ export class RepresentantServices {
         this.token = currentUser && currentUser.token;
     }
 
-    ajouterRepresentant(nomRepresentant: string, prenomRepresentant: string, email: string, telephone: string) {
+    ajouterRepresentant(nomRepresentant: string, prenomRepresentant: string, email: string, adresse: string, telephone: string) {
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
-        return this.http.post('', JSON.stringify(
+        return this.http.post('http://localhost:8000/api/representants',
             {
                 representant: {
                     nomRepresentant: nomRepresentant,
                     prenomRepresentant: prenomRepresentant,
-                    telephone: telephone
+                    adresse: adresse,
+                    tel: telephone
                 },
-                user: {email: email}
-            }),
+                user: {
+                    email: email,
+                    username: email
+                }
+            },
             options)
             .map((response: Response) => {
                 let token = response.json() && response.json().token;
@@ -33,7 +37,7 @@ export class RepresentantServices {
     listerRepresentants() {
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
-        return this.http.get('', options)
+        return this.http.get('http://localhost:8000/api/representants', options)
             .map((response: Response) => response.json());
     }
 }

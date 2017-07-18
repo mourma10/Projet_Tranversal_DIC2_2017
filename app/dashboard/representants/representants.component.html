@@ -14,12 +14,12 @@
             <form>
                 <modal #addReprModal
 
-                       modalClass="modal-lg"
+                       modalClass="modal-md"
                        [hideCloseButton]="false"
                        [closeOnEscape]="true"
                        [closeOnOutsideClick]="true"
-                       (onOpen)="actionOnOpen()"
-                       (onClose)="actionOnClose()"
+                       (onOpen)="addreprModal.open()"
+                       (onClose)="addReprModal.close()"
                        (onSubmit)="ajouterRepresentant()">
                     <modal-header>
                         <h3>Ajouter un Representant</h3>
@@ -35,7 +35,8 @@
                                     <div class="col-md-5">
                                         <div class="form-group form-black label-floating is-empty">
                                             <label class="control-label">Adresse Email: {{email}}</label>
-                                            <input type="email" class="form-control" name="email" [(ngModel)]="email">
+                                            <input type="email" class="form-control" name="email" [(ngModel)]="email"
+                                                   required>
                                         </div>
                                     </div>
 
@@ -43,7 +44,7 @@
                                         <div class="form-group form-black label-floating is-empty">
                                             <label class="control-label">Prénom: {{prenom}}</label>
                                             <input type="text" class="form-control" name="nom"
-                                                   [(ngModel)]="prenom">
+                                                   [(ngModel)]="prenom" required>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +53,16 @@
                                         <div class="form-group form-black label-floating is-empty">
                                             <label class="control-label">Nom: {{nom}}</label>
                                             <input type="text" class="form-control" name="nom"
-                                                   [(ngModel)]="nom">
+                                                   [(ngModel)]="nom" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Adresse:
+                                                {{adresse}}</label>
+                                            <input type="text" class="form-control" name="adresse"
+                                                   [(ngModel)]="adresse" required>
                                         </div>
                                     </div>
 
@@ -61,22 +71,19 @@
                                             <label class="control-label">Numéro de Téléphone:
                                                 {{telephone}}</label>
                                             <input type="text" class="form-control" name="telephone"
-                                                   [(ngModel)]="telephone">
+                                                   [(ngModel)]="telephone" required>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="clearfix"></div>
-
                             </div>
                         </div>
                     </modal-content>
                     <modal-footer>
-                        <button (click)="ajouterRepresentant() && addReprModal.close()" class="btn btn-info">
+                        <button (click)="ajouterRepresentant();addReprModal.close();" class="btn btn-info">
                             Ajouter
                         </button>
                         <button class="btn btn-danger" (click)="addReprModal.close()">Annuler</button>
-
                     </modal-footer>
                 </modal>
             </form>
@@ -87,29 +94,22 @@
                         <p class="category">la liste de mes representants</p>
                     </div>
                     <div class="card-content table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-stripped table-hover table-responsive">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Nom</th>
                                 <th>Prenom</th>
                                 <th>Email</th>
                                 <th>Telephone</th>
-                                <th>Plus</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr *ngFor="let rep of representants">
-                                <td>{{rep.nom}}</td>
-                                <td>{{rep.prenom}}</td>
-                                <td>{{rep.email}}</td>
-                                <td>{{rep.telephone}}</td>
-                                <td>
-                                    <button class="btn btn-info btn-icon btn-icon-right" type="submit">
-                                        Details
-                                    </button>
-                                </td>
+                                <td>{{rep.nomRepresentant}}</td>
+                                <td>{{rep.prenomRepresentant}}</td>
+                                <td>{{rep.user.email}}</td>
+                                <td>{{rep.tel}}</td>
                                 <td>
                                     <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
                                         <i class="material-icons">delete</i>

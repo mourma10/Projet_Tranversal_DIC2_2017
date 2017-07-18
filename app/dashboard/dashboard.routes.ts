@@ -4,7 +4,7 @@ import {LoginComponent} from '../authentification/login.component';
 import {HomeComponent} from './home/home.component';
 import {DashboardrepresentantComponent} from './dashboardrepresentant/dashboardrepresentant.component';
 import {DashboardclientComponent} from './dashboardclient/dashboardclient.component';
-import { DashboardTransporteurComponent } from './dashboardtransporteur/dashboardtransporteur.component'
+import {DashboardTransporteurComponent} from './dashboardtransporteur/dashboardtransporteur.component'
 import {UserComponent} from './user/user.component';
 import {IconsComponent} from './icons/icons.component';
 import {TableComponent} from './table/table.component';

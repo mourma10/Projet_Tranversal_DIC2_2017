@@ -1,30 +1,45 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {TradingServices} from './trading.service';
 
 
 @Component({
     selector: 'trading-cmp',
     moduleId: module.id,
-    templateUrl: 'trading.component.html'
+    templateUrl: 'trading.component.html',
+    providers: [TradingServices]
 })
 
-export class TradingComponent {
-    nomTransporteur:string;
-    dateDebut:Date;
-    destination:string;
-    libelleMarchandise:string;
+export class TradingComponent implements OnInit {
+
+    nomTransporteur: string;
+    dateDebut: Date;
+    destination: string;
+    libelleMarchandise: string;
     quantite: number;
-    libelleTrading:string;
-    marchandises:Marchandise[] = [];
+    libelleTrading: string;
+    marchandises: Marchandise[] = [];
     tradings: Trading[] = [];
 
-    constructor(private router: Router) {
+
+    constructor(private router: Router, private serviceTradings: TradingServices) {
     }
 
-    instruction() {
-        this.router.navigate(['/icons']);
+    ngOnInit() {
+        this.serviceTradings.listerTradings()
+            .subscribe(tradings => {
+                this.tradings = tradings;
+            })
     }
-    addMarchandise(){
+
+    detailTrading(trading: any) {
+        this.router.navigate(['/icons'], {
+            queryParams: {libtrading: trading.libelleTrading}
+        });
+    }
+
+    addMarchandise() {
+        
         let march: Marchandise = {
             libelleMarchandise: this.libelleMarchandise,
             quantite: this.quantite
@@ -33,28 +48,28 @@ export class TradingComponent {
         console.log(march.libelleMarchandise);
     }
 
-    ajouterTrading(){
-       //Appel Fonction service
-        let trading : Trading = {
-            libelleTrading:this.libelleTrading,
-            nomTransporteur:this.nomTransporteur,
-            dateDebut:this.dateDebut,
-            destination:this.destination,
-            marchandises:this.marchandises
+    ajouterTrading() {
+        let trading: Trading = {
+            libelleTrading: this.libelleTrading,
+            nomTransporteur: this.nomTransporteur,
+            dateDebut: this.dateDebut,
+            destination: this.destination,
+            marchandises: this.marchandises
         };
+        this.serviceTradings.ajouterTrading(trading);
         this.tradings.push(trading);
     }
 }
 
-interface Marchandise{
-    libelleMarchandise:string;
-    quantite:number;
+interface Marchandise {
+    libelleMarchandise: string;
+    quantite: number;
 }
 
-interface Trading{
-    libelleTrading:string;
-    nomTransporteur:string,
-    dateDebut:Date;
-    destination:string;
+interface Trading {
+    libelleTrading: string;
+    nomTransporteur: string,
+    dateDebut: Date;
+    destination: string;
     marchandises: Marchandise[];
 }
