@@ -12,62 +12,73 @@
                 </div>
             </div>
 
-             <modal #addTransporteurModal
-       
-        modalClass="modal-lg modal-sm any-other-css-class"
-        [hideCloseButton]="false"
-        [closeOnEscape]="true"
-        [closeOnOutsideClick]="true"
-        (onOpen)="actionOnOpen()"
-        (onClose)="actionOnClose()"
-        (onSubmit)="actionOnSubmit()">
+            <modal #addTransporteurModal
+
+                   modalClass="modal-md"
+                   [hideCloseButton]="false"
+                   [closeOnEscape]="true"
+                   [closeOnOutsideClick]="true"
+                   (onOpen)="actionOnOpen()"
+                   (onClose)="actionOnClose()"
+                   (onSubmit)="actionOnSubmit()">
                 <modal-header>
                     <h3>Ajouter un Transporteur</h3>
                 </modal-header>
                 <modal-content>
                     <div class="card">
-                <div class="card-header" data-background-color="orange">
-                    <h4 class="title">Saisir ses informations</h4>
-                </div>
-                <div class="card-content">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Adresse Email: {{email}}</label>
-                                    <input type="email" class="form-control" name="email" [(ngModel)]="email">
-                                </div>
-                            </div>
-                        
-                            <div class="col-md-6 col-md-offset-1">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Prénom: {{prenom}}</label>
-                                    <input type="text" class="form-control" name="prenom" [(ngModel)]="prenom">
-                                </div>
-                            </div>
+                        <div class="card-header" data-background-color="orange">
+                            <h4 class="title">Saisir ses informations</h4>
                         </div>
-                        <div class="row">     
-                            <div class="col-md-5">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Nom: {{nom}}</label>
-                                    <input type="text" class="form-control" name="nom" [(ngModel)]="nom">
+                        <div class="card-content">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Adresse Email: {{email}}</label>
+                                            <input type="email" class="form-control" name="email" [(ngModel)]="email">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Prénom: {{prenom}}</label>
+                                            <input type="text" class="form-control" name="prenom" [(ngModel)]="prenom">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                             
-                            <div class="col-md-6 col-md-offset-1">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Numéro de Téléphone: {{telephone}}</label>
-                                    <input type="text" class="form-control" name="telephone" [(ngModel)]="telephone">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Nom: {{nom}}</label>
+                                            <input type="text" class="form-control" name="nom" [(ngModel)]="nom">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Adresse:
+                                                {{adresse}}</label>
+                                            <input type="text" class="form-control" name="adresse"
+                                                   [(ngModel)]="adresse" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Numéro de Téléphone: {{telephone}}</label>
+                                            <input type="text" class="form-control" name="telephone"
+                                                   [(ngModel)]="telephone">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
-            </div>
+                    </div>
                 </modal-content>
                 <modal-footer>
-                   <button type="submit" class="btn btn-warning"  >Ajouter</button>
-                   <button class="btn btn-danger" (click)="addTransporteurModal.close()">Annuler</button>
+                    <button type="submit" (click)="ajouterTransporteur();addTransporteurModal.close();"
+                            class="btn btn-warning">Ajouter
+                    </button>
+                    <button class="btn btn-danger" (click)="addTransporteurModal.close()">Annuler</button>
                 </modal-footer>
             </modal>
 
@@ -88,22 +99,15 @@
                                 <th>Prenom</th>
                                 <th>Email</th>
                                 <th>Telephone</th>
-                                <th>Plus</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr *ngFor="let trans of transporteurs">
-                                <td>{{ trans.id }}</td>
                                 <td>{{trans.nomTransporteur}}</td>
                                 <td>{{trans.prenomTransporteur}}</td>
-                                <td>{{trans.email}}</td>
-                                <td class="text-danger">{{trans.telephone}}</td>
-                                <td>
-                                    <button class="btn btn-warning btn-icon btn-icon-right" type="submit">
-                                        Details
-                                    </button>
-                                </td>
+                                <td>{{trans.user.email}}</td>
+                                <td class="text-danger">{{trans.tel}}</td>
                                 <td>
                                     <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
                                         <i class="material-icons">delete</i>

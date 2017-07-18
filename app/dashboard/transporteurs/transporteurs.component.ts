@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TransporteursServices} from './transporteurs.service';
 
 
@@ -14,22 +14,17 @@ export class TransporteursComponent implements OnInit {
     prenom: string;
     email: string;
     telephone: string;
-    transporteur: Transporteur = {
-        id: 1,
-        nomTransporteur: this.nom,
-        prenomTransporteur: this.prenom,
-        email: this.email,
-        telephone: this.telephone
-    };
+    adresse: string;
     transporteurs: Transporteur[] = [];
 
     constructor(private transporteurService: TransporteursServices) {
     }
 
     ngOnInit() {
+        let self = this;
         this.transporteurService.listerTransporteurs()
             .subscribe(transporteurs => {
-                this.transporteurs = transporteurs;
+                self.transporteurs = transporteurs.items;
             });
     }
 
@@ -38,21 +33,38 @@ export class TransporteursComponent implements OnInit {
             this.nom,
             this.prenom,
             this.email,
-            this.telephone)
+            this.telephone,
+            this.adresse)
             .subscribe(response => {
-                return response;
+                if (response === true) {
+                    let rep: Transporteur = {
+                        nomTransporteur: this.nom,
+                        prenomTransporteur: this.prenom,
+                        adresse: this.adresse,
+                        tel: this.telephone,
+                        user: {
+                            username: this.email,
+                            email: this.email,
+                        },
+                    };
+                    this.transporteurs.push(rep);
+                }
             });
-        this.transporteurs.push(this.transporteur);
-        console.log(this.transporteur.prenomTransporteur);
     }
 
 
 }
 
 interface Transporteur {
-    id: number;
+    id?: number;
     nomTransporteur: string;
     prenomTransporteur: string;
-    email: string;
-    telephone: string;
+    user: {
+        email: string;
+        username: string;
+        roles?: any;
+    };
+    adresse: string;
+    tel: string;
+
 }

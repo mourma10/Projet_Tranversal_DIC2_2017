@@ -21,7 +21,7 @@ export class RepresentantsComponent implements OnInit {
     }
 
     ngOnInit() {
-        let self =this;
+        let self = this;
         this.representantService.listerRepresentants()
             .subscribe(representants => {
                 self.representants = representants.items;
@@ -36,21 +36,21 @@ export class RepresentantsComponent implements OnInit {
             this.adresse,
             this.telephone)
             .subscribe(response => {
-                return response;
+                if (response === true) {
+                    let rep: Representant = {
+                        nomRepresentant: this.nom,
+                        prenomRepresentant: this.prenom,
+                        adresse: this.adresse,
+                        tel: this.telephone,
+                        user: {
+                            username: this.email,
+                            email: this.email,
+                        },
+                    };
+                    this.representants.push(rep);
+                }
             });
-        let rep: Representant = {
-                nomRepresentant: this.nom,
-                prenomRepresentant: this.prenom,
-                adresse: this.adresse,
-                tel: this.telephone,
-                user: {
-                    username: this.email,
-                    email: this.email,
-                },
-            }
-        ;
-        this.ajoutOk = true;
-        this.representants.push(rep);
+
     }
 
 

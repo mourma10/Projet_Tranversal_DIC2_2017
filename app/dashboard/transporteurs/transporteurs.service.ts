@@ -1,6 +1,3 @@
-/**
- * Created by BigAthepa on 14/07/2017.
- */
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -14,18 +11,23 @@ export class TransporteursServices {
         this.token = currentUser && currentUser.token;
     }
 
-    ajouterTransporteur(nomTransporteur: string, prenomTransporteur: string, email: string, telephone: string) {
+    ajouterTransporteur(nomTransporteur: string, prenomTransporteur: string, email: string,
+                        adresse: string, telephone: string) {
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
-        return this.http.post('', JSON.stringify(
+        return this.http.post('http://localhost:8000/api/transporteurs',
             {
                 transporteur: {
                     nomTransporteur: nomTransporteur,
                     prenomTransporteur: prenomTransporteur,
+                    adresse: adresse,
                     telephone: telephone
                 },
-                user: {email: email}
-            }),
+                user: {
+                    email: email,
+                    username: email
+                }
+            },
             options)
             .map((response: Response) => {
                 let token = response.json() && response.json().token;
@@ -36,7 +38,7 @@ export class TransporteursServices {
     listerTransporteurs() {
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
-        return this.http.get('', options)
+        return this.http.get('http://localhost:8000/api/transporteurs', options)
             .map((response: Response) => response.json());
     }
 }
