@@ -21,10 +21,11 @@ export class RepresentantsComponent implements OnInit {
     }
 
     ngOnInit() {
-        /*this.representantService.listerRepresentants()
+        let self =this;
+        this.representantService.listerRepresentants()
             .subscribe(representants => {
-                this.representants = representants;
-            });*/
+                self.representants = representants.items;
+            });
     }
 
     ajouterRepresentant() {
@@ -38,12 +39,16 @@ export class RepresentantsComponent implements OnInit {
                 return response;
             });
         let rep: Representant = {
-            nom: this.nom,
-            prenom: this.prenom,
-            email: this.email,
-            adresse: this.adresse,
-            telephone: this.telephone
-        };
+                nomRepresentant: this.nom,
+                prenomRepresentant: this.prenom,
+                adresse: this.adresse,
+                tel: this.telephone,
+                user: {
+                    username: this.email,
+                    email: this.email,
+                },
+            }
+        ;
         this.ajoutOk = true;
         this.representants.push(rep);
     }
@@ -53,9 +58,13 @@ export class RepresentantsComponent implements OnInit {
 
 interface Representant {
     id?: number;
-    nom: string;
-    prenom: string;
-    email: string;
+    nomRepresentant: string;
+    prenomRepresentant: string;
+    user: {
+        username: string;
+        email: string;
+        roles?: any;
+    };
     adresse: string;
-    telephone: string;
+    tel: string;
 }

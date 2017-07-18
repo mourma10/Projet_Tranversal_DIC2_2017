@@ -106,10 +106,10 @@
                             </thead>
                             <tbody>
                             <tr *ngFor="let rep of representants">
-                                <td>{{rep.nom}}</td>
-                                <td>{{rep.prenom}}</td>
-                                <td>{{rep.email}}</td>
-                                <td>{{rep.telephone}}</td>
+                                <td>{{rep.nomRepresentant}}</td>
+                                <td>{{rep.prenomRepresentant}}</td>
+                                <td>{{rep.user.email}}</td>
+                                <td>{{rep.tel}}</td>
                                 <td>
                                     <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
                                         <i class="material-icons">delete</i>
