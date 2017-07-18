@@ -15,7 +15,7 @@ export class AuthentificationService {
         headers.append("Authorization", "Basic " + btoa(username + ":" + password));
         let options = new RequestOptions({headers: headers});
 
-        return this.http.post('http://localhost:8000/api/tokens', null, options)
+        return this.http.post('http://localhost:8000/api/tokens', {}, options)
             .map((response: Response) => {
                 console.log(response.json());
                 let token = response.json() && response.json().token;
@@ -26,10 +26,8 @@ export class AuthentificationService {
                 } else {
                     return false;
                 }
-            }).catch((error: any) => {
-                console.log(error);
-                return Observable.throw(error.json().error || 'Server error')
             });
+
     }
 
     logout(): void {
