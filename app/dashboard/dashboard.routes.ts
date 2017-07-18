@@ -22,7 +22,7 @@ export const MODULE_ROUTES: Route[] = [
     {path: 'login', component: LoginComponent},
     {path: 'dashboard', component: HomeComponent},
     {path: 'dashboardrepresentant', component: DashboardrepresentantComponent},
-   // {path: 'dashboardclient', component: DashboardclientComponent},
+    {path: 'dashboardclient', component: DashboardclientComponent},
     {path: 'dashboardtransporteur', component: DashboardTransporteurComponent},
     {path: 'user', component: UserComponent},
     {path: 'table', component: TableComponent},
@@ -49,7 +49,7 @@ export const MODULE_COMPONENTS = [
     RepresentantsComponent,
     DashboardrepresentantComponent,
     DashboardTransporteurComponent,
-    //DashboardclientComponent
+    DashboardclientComponent
     /*NotificationsComponent,
     MapsComponent,
     UpgradeComponent,*/
