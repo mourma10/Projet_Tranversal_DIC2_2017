@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class AuthentificationService {
     public token: string;
-    public role: string = 'trader';
+    public user: any ;
 
     constructor(private http: Http) {
     }
@@ -18,15 +18,14 @@ export class AuthentificationService {
 
         return this.http.post('http://localhost:8000/api/tokens', {}, options)
             .map((response: Response) => {
-                console.log(response.json());
+                let self  = this;
                 let token = response.json() && response.json().token;
+                let user = response.json() && response.json().user;
                 if (token) {
-                    this.token = token;
-                    this.role = 'trader';
-                    localStorage.setItem('currentUser', JSON.stringify({username: username, token: token}));
+                    self.token = token;
+                    self.user = user;
+                    localStorage.setItem('currentUser', JSON.stringify({token: token, user: user}));
                     return true;
-                } else {
-                    return false;
                 }
             });
 

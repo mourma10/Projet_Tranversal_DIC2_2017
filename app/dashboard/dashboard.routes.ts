@@ -12,6 +12,7 @@ import {NotificationsComponent} from './notifications/notifications.component';
 import {TypographyComponent} from './typography/typography.component';
 import {MapsComponent} from './maps/maps.component';
 import {UpgradeComponent} from './upgrade/upgrade.component';
+import {MarchandisesComponent} from './marchandises/marchandises.component';
 import {TransporteursComponent} from './transporteurs/transporteurs.component';
 import {TradingComponent} from './trading/trading.component';
 import {RepresentantsComponent} from './representants/representants.component';
@@ -20,17 +21,18 @@ import {AuthGuard} from '../authentification/authentification.guard';
 
 export const MODULE_ROUTES: Route[] = [
     {path: 'login', component: LoginComponent},
-    {path: 'dashboard', component: HomeComponent},
-    {path: 'dashboardrepresentant', component: DashboardrepresentantComponent},
-    {path: 'dashboardclient', component: DashboardclientComponent},
-    {path: 'dashboardtransporteur', component: DashboardTransporteurComponent},
+    {path: 'dashboard', component: HomeComponent, canActivate:[AuthGuard]},
+    {path: 'dashboardrepresentant', component: DashboardrepresentantComponent, canActivate:[AuthGuard]},
+    {path: 'dashboardclient', component: DashboardclientComponent, canActivate:[AuthGuard]},
+    {path: 'dashboardtransporteur', component: DashboardTransporteurComponent, canActivate:[AuthGuard]},
     {path: 'user', component: UserComponent},
     {path: 'table', component: TableComponent},
-    {path: 'icons', component: IconsComponent},
+    {path: 'icons', component: IconsComponent, canActivate:[AuthGuard]},
     {path: 'typography', component: TypographyComponent},
-    {path: 'transporteurs', component: TransporteursComponent},
-    {path: 'representants', component: RepresentantsComponent},
-    {path: 'trading', component: TradingComponent},
+    {path: 'transporteurs', component: TransporteursComponent, canActivate:[AuthGuard]},
+    {path: 'representants', component: RepresentantsComponent, canActivate:[AuthGuard]},
+    {path: 'marchandises', component:MarchandisesComponent, canActivate:[AuthGuard]},
+    {path: 'trading', component: TradingComponent, canActivate:[AuthGuard]},
     /*{path: 'notifications', component: NotificationsComponent},
     {path: 'maps', component: MapsComponent},
     {path: 'upgrade', component: UpgradeComponent},*/
@@ -49,7 +51,8 @@ export const MODULE_COMPONENTS = [
     RepresentantsComponent,
     DashboardrepresentantComponent,
     DashboardTransporteurComponent,
-    DashboardclientComponent
+    DashboardclientComponent,
+    MarchandisesComponent
     /*NotificationsComponent,
     MapsComponent,
     UpgradeComponent,*/

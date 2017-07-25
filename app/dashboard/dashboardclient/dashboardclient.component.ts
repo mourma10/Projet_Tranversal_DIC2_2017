@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import initDemo = require('../../../assets/js/charts.js');
 import {DashboardclientServices} from './dashboardclient.service';
 import {RepresentantServices} from '../representants/representants.service';
-import {MarchandiseService} from '../marchandises.service';
+import {MarchandiseService} from '../marchandises/marchandises.service';
 
 declare var $: any;
 
@@ -31,13 +31,14 @@ export class DashboardclientComponent implements OnInit {
     }
 
     ngOnInit() {
+        let self = this;
         this.dashboardclientService.listerCommandes()
             .subscribe(commandes => {
-                this.commandes = commandes;
+                self.commandes = commandes;
             });
         this.representantService.listerRepresentants()
             .subscribe(representants => {
-                this.representants = representants;
+                self.representants = representants;
             });
         this.marchandiseService.listerMarchandises()
             .subscribe(marchandises => {

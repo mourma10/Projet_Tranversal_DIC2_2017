@@ -29,6 +29,7 @@ export class RepresentantsComponent implements OnInit {
     }
 
     ajouterRepresentant() {
+        let self = this;
         this.representantService.ajouterRepresentant(
             this.nom,
             this.prenom,
@@ -36,19 +37,18 @@ export class RepresentantsComponent implements OnInit {
             this.adresse,
             this.telephone)
             .subscribe(response => {
-                if (response === true) {
-                    let rep: Representant = {
-                        nomRepresentant: this.nom,
-                        prenomRepresentant: this.prenom,
-                        adresse: this.adresse,
-                        tel: this.telephone,
-                        user: {
-                            username: this.email,
-                            email: this.email,
-                        },
-                    };
-                    this.representants.push(rep);
-                }
+                let rep: Representant = {
+                    nomRepresentant: self.nom,
+                    prenomRepresentant: self.prenom,
+                    adresse: self.adresse,
+                    tel: self.telephone,
+                    user: {
+                        username: self.email,
+                        email: self.email,
+                    },
+                };
+
+                self.representants.push(rep);
             });
 
     }

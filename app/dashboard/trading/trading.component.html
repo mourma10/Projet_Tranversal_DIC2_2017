@@ -14,8 +14,6 @@
 
             <form>
                 <modal #addTradingModal
-
-
                        modalClass="modal-lg"
                        [hideCloseButton]="false"
                        [closeOnEscape]="true"
@@ -59,11 +57,9 @@
                                         <div class="col-md-4 col-md-offset-1">
                                             <div class="form-group form-black label-floating is-empty">
                                                 <label class="control-label">Transporteur</label>
-                                                <select class="form-control" id="trsp" name="nomTransporteur"
-                                                        [(ngModel)]="nomTransporteur">
-                                                    <option>test</option>
-                                                    <option>test1</option>
-                                                    <option *ngFor="let transporteurs of transporteurs">
+                                                <select class="form-control" id="trsp" name="idTransporteur"
+                                                        [(ngModel)]="idTransporteur">
+                                                    <option *ngFor="let transporteur of transporteurs" value="{{transporteur.id}}">
                                                         {{transporteur.prenomTransporteur}}
                                                         {{transporteur.nomTransporteur}}
                                                     </option>
@@ -89,10 +85,14 @@
 
                                         <div class="col-md-5">
                                             <div class="form-group form-black label-floating is-empty">
-                                                <label class="control-label">Libellé</label>
-                                                <input type="text" name="libelleMarchandise"
-                                                       [(ngModel)]="libelleMarchandise"
+                                                <label class="control-label">Libellé {{idTypeMarchandise}}</label>
+                                                <select  name="idTypeMarchandise"
+                                                       [(ngModel)]="idTypeMarchandise"
                                                        class="form-control">
+                                                    <option *ngFor="let typeMarch of typeMarchandises" value="{{typeMarch.id}}">
+                                                        {{typeMarch.libelle}}
+                                                    </option>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -115,7 +115,6 @@
                                         <table class="table">
                                             <thead class="text-danger">
                                             <tr>
-                                                <th>Id</th>
                                                 <th>libelle</th>
                                                 <th>Quantite</th>
                                                 <th></th>
@@ -123,10 +122,8 @@
                                             </thead>
                                             <tbody>
                                             <tr *ngFor="let march of marchandises">
-                                                <td>{{march.libelleMarchandise}}</td>
-                                                <td>{{march.quantite}}
-                                                    <small>Tonnes</small>
-                                                </td>
+                                                <td>{{march.typeMarchandiseId}}</td>
+                                                <td>{{march.stock}}</td>
                                                 <td>
                                                     <button class="btn btn-danger btn-icon btn-icon-right"
                                                             type="submit">
@@ -171,15 +168,14 @@
                                         <table class="table">
                                             <thead class="text-danger">
                                             <tr>
-                                                <th>Id</th>
                                                 <th>libelle</th>
                                                 <th>Quantite</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr *ngFor="let march of marchandises">
-                                                <th>{{march.libelleMarchandise}}</th>
-                                                <th>{{march.quantite}}</th>
+                                                <th>{{march.typeMarhandiseId}}</th>
+                                                <th>{{march.stock}}</th>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -196,7 +192,7 @@
                                 <button class="btn btn-danger" (click)="addTradingModal.close()">Annuler</button>
                             </div>
                             <div class="form-group form-black label-floating is-empty pull-rigth">
-                                <button type="submit" (click)="ajouterTrading()" class="btn btn-success">Valider
+                                <button type="submit" (click)="ajouterTrading();addTradingModal.close()" class="btn btn-success">Valider
                                 </button>
                             </div>
 
@@ -231,13 +227,13 @@
                             </thead>
                             <tbody>
                             <tr *ngFor="let trading of tradings">
-                                <td>{{trading.libelleTrading}}</td>
-                                <td>{{trading.nomTransporteur}}</td>
+                                <td>{{trading.libelle}}</td>
+                                <td>{{trading.transporteur.prenomTransporteur}} {{trading.transporteur.nomTransporteur}}</td>
                                 <td>{{trading.destination}}</td>
                                 <td>{{trading.dateDebut}}</td>
                                 <td>
                                     <button class="btn btn-success btn-icon btn-icon-right"
-                                            (click)="detailTrading(trading)">
+                                            (click)="getTrading(trading.id)">
                                         Details
                                     </button>
                                 </td>

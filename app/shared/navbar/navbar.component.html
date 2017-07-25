@@ -39,7 +39,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a [routerLink]="['/user']">View Profile</a></li>
-                            <li><a [routerLink]="['/login']">Log out</a></li>
+                            <li><a (click)="logOut();" [routerLink]="['/login']">Log out</a></li>
                         </ul>
                     </li>
                 </ul>

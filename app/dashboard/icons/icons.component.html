@@ -173,11 +173,11 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr *ngFor="let trading of tradings">
-                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.libelleTrading}}</td>
-                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.nomTransporteur}}</td>
-                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.dateDebut}}</td>
-                                    <td *ngIf="trading.libelleTrading == libtrading">{{trading.destination}}</td>
+                                <tr>
+                                    <!--<td >{{trading.libelle}}</td>-->
+                                    <td >{{trading.destination}}</td>
+                                    <td >{{trading.dateDebut}}</td>
+                                    <td >{{trading.transporteur.nomTransporteur}} {{trading.transporteur.nomTransporteur}}</td>
                                 </tr>
                                 </tbody>
                             </table>

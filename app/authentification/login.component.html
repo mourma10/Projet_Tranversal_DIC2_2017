@@ -1,11 +1,11 @@
 <form name="form">
-    <div class="col-md-6 col-md-offset-2" style="padding-top: 5%;padding-left: 8%">
+    <div class="col-md-6 col-md-offset-2" style="padding-top: 12%;padding-left: 8%">
         <div class="card">
             <div class="card-header" data-background-color="red">
-                <h1 class="title">Trading</h1>
+                <h1 class="title">AppTrading</h1>
             </div>
             <div class="card-content">
-                <div class="col-md-6 col-md-offset-2">
+                <div class="col-md-8 col-md-offset-2">
                     <div class="form-group">
                         <label>Login: {{username}}</label>
                         <input type="text" class="form-control" title="name" name="username" [(ngModel)]="username"
@@ -18,12 +18,10 @@
                 </div>
             </div>
             <div class="card-footer">
-                <div class="form-group pull-right">
-                    <button (click)="login()" class="btn btn-danger">Connexion</button>
-                    <a href="#">Mot de passe oublié?</a>
+                <div class="form-group pull-right col-lg-12">
+                    <button (click)="login()" class="btn btn-danger btn-block btn-google">Connexion</button>
                 </div>
             </div>
-
         </div>
     </div>
 </form>

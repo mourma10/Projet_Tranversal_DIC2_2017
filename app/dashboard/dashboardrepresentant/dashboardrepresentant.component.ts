@@ -13,19 +13,14 @@ export class DashboardrepresentantComponent implements OnInit {
     prenom: string;
     email: string;
     telephone: string;
-    client: Client = {
-        nomClient: this.nom,
-        prenomClient: this.prenom,
-        email: this.email,
-        telephone: this.telephone
-    };
+    adresse:string;
     clients: Client[];
 
     constructor() {
     }
 
     ngOnInit() {
-        initDemo();
+
     }
 }
 

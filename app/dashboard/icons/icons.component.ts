@@ -3,6 +3,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {TradingServices} from '../trading/trading.service';
 
 
+
 @Component({
     selector: 'icons-cmp',
     moduleId: module.id,
@@ -11,33 +12,31 @@ import {TradingServices} from '../trading/trading.service';
 })
 
 export class IconsComponent implements OnInit {
-    libtrading: Params;
-    tradings: Trading[] = [];
+    trading: Trading;
+    tradingId:number;
 
     constructor(private route: ActivatedRoute, private tradingServices: TradingServices) {
-
+        this.tradingId = this.route.snapshot.queryParams["tradingId"];
     }
 
     ngOnInit() {
-        this.libtrading = this.route.snapshot.queryParams["libtrading"];
-        this.tradingServices.listerTradings()
-            .subscribe(tradings => {
-                this.tradings = tradings;
-            })
+        let self = this;
+        this.tradingServices.infoTrading(this.tradingId)
+            .subscribe(trading => {
+                self.trading = trading;
+
+            });
+        console.log(this.trading);
     }
 
+
 }
 
-interface Marchandise {
-    libelleMarchandise: string;
-    quantite: number;
-}
 
 interface Trading {
-    libelleTrading: string;
-    nomTransporteur: string,
+    libelle: string;
+    transporteurId: number,
     dateDebut: Date;
     destination: string;
-    marchandises: Marchandise[];
+    instructionsLivraison: any[];
 }
-

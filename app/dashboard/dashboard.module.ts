@@ -10,7 +10,7 @@ import {AuthentificationService} from '../authentification/authentification.serv
 import {RepresentantServices} from './representants/representants.service';
 import {TransporteursServices} from "./transporteurs/transporteurs.service";
 import { AjouterNoteDebitService } from './dashboardtransporteur/ajouternotedebit.service';
-import {MarchandiseService} from "./marchandises.service";
+import {MarchandiseService} from './marchandises/marchandises.service';
 import {TradingServices} from "./trading/trading.service";
 import {DashboardclientServices} from "./dashboardclient/dashboardclient.service";
 

@@ -19,7 +19,7 @@
                    [closeOnEscape]="true"
                    [closeOnOutsideClick]="true"
                    (onOpen)="actionOnOpen()"
-                   (onClose)="actionOnClose()"
+                   (onClose)="addTransporteurModal.close()"
                    (onSubmit)="actionOnSubmit()">
                 <modal-header>
                     <h3>Ajouter un Transporteur</h3>
@@ -94,7 +94,6 @@
                         <table class="table">
                             <thead class="text-danger">
                             <tr>
-                                <th>Id</th>
                                 <th>Nom</th>
                                 <th>Prenom</th>
                                 <th>Email</th>
@@ -107,7 +106,7 @@
                                 <td>{{trans.nomTransporteur}}</td>
                                 <td>{{trans.prenomTransporteur}}</td>
                                 <td>{{trans.user.email}}</td>
-                                <td class="text-danger">{{trans.tel}}</td>
+                                <td class="text-danger">{{trans.telTransporteur}}</td>
                                 <td>
                                     <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
                                         <i class="material-icons">delete</i>

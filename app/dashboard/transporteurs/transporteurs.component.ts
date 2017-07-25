@@ -29,6 +29,7 @@ export class TransporteursComponent implements OnInit {
     }
 
     ajouterTransporteur() {
+        let self= this;
         this.transporteurService.ajouterTransporteur(
             this.nom,
             this.prenom,
@@ -36,19 +37,17 @@ export class TransporteursComponent implements OnInit {
             this.telephone,
             this.adresse)
             .subscribe(response => {
-                if (response === true) {
-                    let rep: Transporteur = {
-                        nomTransporteur: this.nom,
-                        prenomTransporteur: this.prenom,
-                        adresse: this.adresse,
-                        tel: this.telephone,
+                    let trans: Transporteur = {
+                        nomTransporteur: self.nom,
+                        prenomTransporteur: self.prenom,
+                        adresse: self.adresse,
+                        telTransporteur: self.telephone,
                         user: {
-                            username: this.email,
-                            email: this.email,
+                            username: self.email,
+                            email: self.email,
                         },
                     };
-                    this.transporteurs.push(rep);
-                }
+                    self.transporteurs.push(trans);
             });
     }
 
@@ -65,6 +64,6 @@ interface Transporteur {
         roles?: any;
     };
     adresse: string;
-    tel: string;
+    telTransporteur: string;
 
 }

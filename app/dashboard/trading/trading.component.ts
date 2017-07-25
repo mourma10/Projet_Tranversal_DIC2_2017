@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {TradingServices} from './trading.service';
-
+import {TransporteursServices} from '../transporteurs/transporteurs.service';
+import {MarchandiseService} from '../marchandises/marchandises.service';
 
 @Component({
     selector: 'trading-cmp',
@@ -12,64 +13,105 @@ import {TradingServices} from './trading.service';
 
 export class TradingComponent implements OnInit {
 
-    nomTransporteur: string;
+    idTransporteur: number;
     dateDebut: Date;
     destination: string;
-    libelleMarchandise: string;
+    idTypeMarchandise: number;
+    transporteurs:Transporteur[] = [];
     quantite: number;
     libelleTrading: string;
-    marchandises: Marchandise[] = [];
+    typeMarchandises: TypeMarchandise[] = [];
+    marchandises:Marchandise[] = [];
     tradings: Trading[] = [];
 
 
-    constructor(private router: Router, private serviceTradings: TradingServices) {
+    constructor(private router: Router, private serviceTradings: TradingServices,
+    private serviceTransporteur:TransporteursServices, private serviceMarchandise:MarchandiseService) {
     }
 
     ngOnInit() {
-        this.serviceTradings.listerTradings()
-            .subscribe(tradings => {
-                this.tradings = tradings;
-            })
+        let self = this;
+        this.serviceTransporteur.listerTransporteurs()
+            .subscribe(transporteurs =>{
+                self.transporteurs = transporteurs.items;
+            });
+        this.serviceMarchandise.listerMarchandises()
+            .subscribe(typeMarchandises =>{
+                self.typeMarchandises = typeMarchandises.items;
+            });
+           this.serviceTradings.listerTradings()
+                    .subscribe(tradings => {
+                        self.tradings = tradings.items;
+                    });
     }
 
     detailTrading(trading: any) {
-        this.router.navigate(['/icons'], {
-            queryParams: {libtrading: trading.libelleTrading}
-        });
     }
 
     addMarchandise() {
-        
         let march: Marchandise = {
-            libelleMarchandise: this.libelleMarchandise,
-            quantite: this.quantite
+            typeMarchandiseId: this.idTypeMarchandise,
+            stock: this.quantite
         };
         this.marchandises.push(march);
-        console.log(march.libelleMarchandise);
     }
 
     ajouterTrading() {
-        let trading: Trading = {
-            libelleTrading: this.libelleTrading,
-            nomTransporteur: this.nomTransporteur,
-            dateDebut: this.dateDebut,
-            destination: this.destination,
-            marchandises: this.marchandises
-        };
-        this.serviceTradings.ajouterTrading(trading);
-        this.tradings.push(trading);
+        let self = this;
+        this.serviceTradings.ajouterTrading(
+            this.libelleTrading,
+            this.idTransporteur,
+            this.dateDebut,
+            this.destination,
+            this.marchandises
+            )
+        .subscribe(response =>{
+            let trading: Trading = {
+                libelle: self.libelleTrading,
+                transporteurId: self.idTransporteur,
+                dateDebut: self.dateDebut,
+                destination: self.destination,
+                marchandises: self.marchandises
+            };
+            this.tradings.push(trading);
+        });
+    }
+
+    getTrading(tradingId:number){
+        this.serviceTradings.infoTrading(tradingId)
+            .subscribe(response =>{
+                this.router.navigate(['/icons'], {queryParams:{tradingId:tradingId}});
+            });
     }
 }
 
+interface TypeMarchandise {
+    id?:number;
+    libelle: string;
+}
+
 interface Marchandise {
-    libelleMarchandise: string;
-    quantite: number;
+    typeMarchandiseId:number;
+    stock:number;
 }
 
 interface Trading {
-    libelleTrading: string;
-    nomTransporteur: string,
+    libelle: string;
+    transporteurId: number,
     dateDebut: Date;
     destination: string;
     marchandises: Marchandise[];
 }
+interface Transporteur {
+    id?: number;
+    nomTransporteur: string;
+    prenomTransporteur: string;
+    user: {
+        email: string;
+        username: string;
+        roles?: any;
+    };
+    adresse: string;
+    telTransporteur: string;
+}
+

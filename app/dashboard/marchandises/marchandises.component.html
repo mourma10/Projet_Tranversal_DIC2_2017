@@ -1,0 +1,86 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-9">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-info btn-icon btn-icon-right" (click)="addMarchModal.open()">
+                        <i class="material-icons">create</i>
+                        Ajouter Marchandise
+                    </button>
+                </div>
+            </div>
+            <form>
+                <modal #addMarchModal
+
+                       modalClass="modal-md"
+                       [hideCloseButton]="false"
+                       [closeOnEscape]="true"
+                       [closeOnOutsideClick]="true"
+                       (onOpen)="addreprModal.open()"
+                       (onClose)="addMarchModal.close()"
+                       (onSubmit)="ajouterMarchandise()">
+                    <modal-header>
+                        <h3>Ajouter une marchandise</h3>
+                    </modal-header>
+                    <modal-content style="background-color: black">
+                        <div class="card">
+                            <div class="card-header" data-background-color="blue">
+                                <h4 class="title">Libelle Marchandise</h4>
+                            </div>
+                            <div class="card-content">
+
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Libelle marchandise: {{libelle}}</label>
+                                            <input type="text" class="form-control" name="libelle" [(ngModel)]="libelle"
+                                                   required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </modal-content>
+                    <modal-footer>
+                        <button (click)="ajouterMarchandise();addMarchModal.close();" class="btn btn-info">
+                            Ajouter
+                        </button>
+                        <button class="btn btn-danger" (click)="addMarchModal.close()">Annuler</button>
+                    </modal-footer>
+                </modal>
+            </form>
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header" data-background-color="red">
+                        <h3 class="title">Marchandises</h3>
+                        <p class="category">La liste de marchandises</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-stripped table-hover table-responsive">
+                            <thead>
+                            <tr>
+                                <th>Type Marchandise</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let march of marchandises">
+                                <td>{{march.libelle}}</td>
+                                <td>
+                                    <button class="btn btn-danger btn-icon btn-icon-right" type="submit">
+                                        <i class="material-icons">delete</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- fin row -->
+    </div> <!-- fin container fluid -->
+</div> <!-- fin main-content -->

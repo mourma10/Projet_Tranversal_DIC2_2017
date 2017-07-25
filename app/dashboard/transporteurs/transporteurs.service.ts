@@ -21,7 +21,7 @@ export class TransporteursServices {
                     nomTransporteur: nomTransporteur,
                     prenomTransporteur: prenomTransporteur,
                     adresse: adresse,
-                    telephone: telephone
+                    telTransporteur: telephone
                 },
                 user: {
                     email: email,

@@ -11,10 +11,16 @@ export class TradingServices {
         this.token = currentUser && currentUser.token;
     }
 
-    ajouterTrading(trading: any) {
+    ajouterTrading(libelleTrading:string, idTransporteur:number, dateDebut:Date, destination:string, marchandises:any[]) {
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
-        return this.http.post('', trading, options)
+        return this.http.post('http://localhost:8000/api/conteneur', {
+            transporteurId:idTransporteur,
+            libelle:libelleTrading,
+            dateDebut:dateDebut,
+            destination:destination,
+            marchandises:marchandises
+        }, options)
             .map((response: Response) => {
                 let token = response.json() && response.json().token;
                 return !!token;
@@ -24,7 +30,14 @@ export class TradingServices {
     listerTradings() {
         let headers = new Headers({'Authorization': 'Bearer ' + this.token});
         let options = new RequestOptions({headers: headers});
-        return this.http.get('', options)
+        return this.http.get('http://localhost:8000/api/conteneurs', options)
+            .map((response: Response) => response.json());
+    }
+
+    infoTrading(tradingId:number){
+        let headers = new Headers({'Authorization': 'Bearer ' + this.token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get('http://localhost:8000/api/conteneur/'+tradingId, options)
             .map((response: Response) => response.json());
     }
 }

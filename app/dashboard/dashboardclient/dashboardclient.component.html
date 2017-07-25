@@ -1,23 +1,22 @@
 <div class="main-content">
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6"></div>
             <div class="col-md-3">
             </div>
             <div class="col-md-3">
-                <button class="btn btn-success btn-icon btn-icon-right" (click)="addcommande.open()">
+                <button class="btn btn-success btn-icon btn-icon-right" (click)="addCommande.open()">
                     <i class="material-icons">create</i>
                     Creer Commande
                 </button>
                 <form>
-                    <modal #addcommande
+                    <modal #addCommande
                            modalClass="modal-lg"
                            [hideCloseButton]="false"
                            [closeOnEscape]="true"
                            [closeOnOutsideClick]="true"
                            (onOpen)="actionOnOpen()"
-                           (onClose)="addcommande.close()"
+                           (onClose)="addCommande.close()"
                            (onSubmit)="actionOnSubmit()">
                         <modal-header>
                             <h2>Creation d'une commande</h2>
@@ -165,10 +164,10 @@
                         <modal-footer>
                             <div class="col-md-5  ">
                                 <div class="form-group form-black label-floating is-empty pull-left">
-                                    <button class="btn btn-danger" (click)="addcommande.close()">Annuler</button>
+                                    <button class="btn btn-danger" (click)="addCommande.close()">Annuler</button>
                                 </div>
                                 <div class="form-group form-black label-floating is-empty pull-rigth">
-                                    <button type="submit" (click)="ajouterCommande()" class="btn btn-success">Valider
+                                    <button type="submit" (click)="ajouterCommande();addCommande.close()" class="btn btn-success">Valider
                                     </button>
                                 </div>
 
