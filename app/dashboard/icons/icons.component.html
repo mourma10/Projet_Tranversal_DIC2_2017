@@ -1,158 +1,14 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-1 col-md-8 col-sm-8">
+            <div class="col-md-8">
             </div>
-            <div class="col-lg-5 col-md-8 col-sm-8">
-                <div class="card card-stats">
-                    <div class="card-header" data-background-color="orange">
-                        <i class="material-icons">swap_vertical_circle</i>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="category">Stock Initial du trading</h4>
-                        <h3 class="title">50</h3>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <!--  <i class="material-icons text-danger">warning</i> --><a href="#pablo">Voir plus...</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-4">
+                <button class="btn btn-warning btn-icon btn-icon-right" data-toggle="modal" data-target="#info">
+                    <i class="material-icons">create</i>
+                    Emettre Instruction de Livraison
+                </button>
             </div>
-
-            <div class="col-lg-5 col-md-8 col-sm-8">
-                <div class="card card-stats">
-                    <div class="card-header" data-background-color="green">
-                        <i class="material-icons">supervisor_account</i>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="category">Nombre d'instructions de livraison</h4>
-                        <h3 class="title">10</h3>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <!--  <i class="material-icons">date_range</i>--><a href="#pablo">Voir plus...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-1 col-md-8 col-sm-8">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-8">
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-warning btn-icon btn-icon-right" (click)="addInstructionModal.open()">
-                        <i class="material-icons">create</i>
-                        Emettre Instruction de Livraison
-                    </button>
-                </div>
-            </div>
-            <form>
-                <modal #addInstructionModal
-
-                       modalClass="modal-lg modal-sm any-other-css-class"
-                       [hideCloseButton]="false"
-                       [closeOnEscape]="true"
-                       [closeOnOutsideClick]="true"
-                       (onOpen)="actionOnOpen()"
-                       (onClose)="actionOnClose()"
-                       (onSubmit)="actionOnSubmit()">
-                    <modal-header>
-                        <h4>Emettre Instruction de Livraison</h4>
-                    </modal-header>
-                    <modal-content>
-                        <div class="card">
-                            <div class="card-header" data-background-color="orange">
-                                <h4 class="title">Saisir les informations</h4>
-                            </div>
-                            <div class="card-content">
-
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Libellé</label>
-                                            <input type="email" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label>Transporteur</label>
-                                            <select class="browser-default">
-                                                <option value="mamour">Mamour Tall</option>
-                                                <option value="adji">Adja Ndiaye</option>
-                                                <option value="thierno">Thierno Diop</option>
-                                                <option value="maodo" selected>Maodo Diagne</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-
-
-                                    <div class="col-md-5">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Libellé Marchandise</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-5 col-md-offset-0">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Quantité</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <button class="btn btn-success btn-icon btn-icon-left">
-                                                <i class="material-icons">exposure_plus_1</i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-
-                                    </div>
-                                    <table class="table">
-                                        <thead class="text-danger">
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>libelle</th>
-                                            <th>Quantite</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Sucre</td>
-                                            <td>100
-                                                <small>Tonnes</small>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-danger btn-icon btn-icon-right"
-                                                        type="submit">
-                                                    <i class="material-icons">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </modal-content>
-                    <modal-footer>
-                        <button type="submit" class="btn btn-warning">Ajouter</button>
-                        <button class="btn btn-danger" (click)="addInstructionModal.close()">Annuler</button>
-                    </modal-footer>
-                </modal>
-            </form>
-
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -173,12 +29,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <!--<td >{{trading.libelle}}</td>-->
-                                    <td >{{trading.destination}}</td>
-                                    <td >{{trading.dateDebut}}</td>
-                                    <td >{{trading.transporteur.nomTransporteur}} {{trading.transporteur.nomTransporteur}}</td>
-                                </tr>
+                                <!--<tr *ngFor="let trading of tradings">
+                                    <td>{{trading.libelle}}</td>
+                                    <td>{{trading.destination}}</td>
+                                    <td>{{trading.dateDebut}}</td>
+                                    <td>{{trading.transporteur.prenomTransporteur}}
+                                        {{trading.transporteur.nomTransporteur}}
+                                    </td>
+                                </tr>-->
                                 </tbody>
                             </table>
                             <div class="clearfix"></div>
@@ -219,6 +77,165 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="info" class="modal fade" role="dialog" aria-labelledby="infoLabel" aria-hidden="false">
+    <div class="modal-dialog modal-md" style="top:-5%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="title text-center">Informations</h1>
+            </div>
+            <div class="modal-body">
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Libellé</label>
+                    <input type="text" name="libelleTrading"
+                           class="form-control">
+                </div>
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Tranporteur</label>
+                    <select type="text" name="destination"
+                            class="form-control"></select>
+                </div>
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Representant</label>
+                    <select class="form-control" id="trsp" name="idTransporteur"
+                    >
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">
+                    Annuler
+                </button>
+
+                <button onclick="$(&quot;#info&quot;).modal('hide');$(&quot;#addmarch&quot;).modal('show')"
+                        class="btn btn-info">
+                    Suivant
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="addmarch" class="modal fade" role="dialog" aria-labelledby="addmarchLabel" aria-hidden="false">
+    <div class="modal-dialog modal-md" style="top:-5%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="title text-center">Marchandises</h1>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-5">
+                    <div class="form-group form-black label-floating is-empty">
+                        <label class="control-label">Libellé </label>
+                        <select name="idTypeMarchandise"
+                                class="form-control">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-1">
+                    <div class="form-group form-black label-floating is-empty">
+                        <label class="control-label">Quantité</label>
+                        <input type="text" name="quantite"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <button
+                            class="btn btn-success btn-icon btn-icon-left">
+                        <i class="material-icons">exposure_plus_1</i> Ajouter
+                    </button>
+                </div>
+                <div class="col-md-3">
+
+                </div>
+                <table class="table">
+                    <thead class="text-danger">
+                    <tr>
+                        <th>libelle</th>
+                        <th>Quantite</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--<tr *ngFor="let march of marchandises">
+                        <td>{{march.typeMarchandiseId}}</td>
+                        <td>{{march.stock}}</td>
+                        <td>
+                            <button class="btn btn-danger btn-icon btn-icon-right"
+                                    type="submit">
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </td>
+                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default"
+                        onclick="$(&quot;#addmarch&quot;).modal('hide');$(&quot;#info&quot;).modal('show')">
+                    Precedent
+                </button>
+                <button onclick="$(&quot;#addmarch&quot;).modal('hide');$(&quot;#resume&quot;).modal('show')"
+                        class="btn btn-info">
+                    Suivant
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="resume" class="modal fade" role="dialog" aria-labelledby="resumeLabel" aria-hidden="false">
+    <div class="modal-dialog modal-md" style="top:-5%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="title text-center">Resume</h1>
+            </div>
+            <div class="modal-body">
+                <h6 class="title">Informations Instruction</h6>
+                <table class="table">
+                    <thead class="text-danger">
+                    <tr>
+                        <th>libelle</th>
+                        <th>id Transporteur</th>
+                        <th>Representant</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--<tr>
+                        <td>{{libelleTrading}}</td>
+                        <td>{{idTransporteur}}</td>
+                        <td>{{destination}}</td>
+                    </tr>-->
+                    </tbody>
+                </table>
+                <h6 class="title">Informations marchandises</h6>
+                <table class="table">
+                    <thead class="text-danger">
+                    <tr>
+                        <th>id Marchandise</th>
+                        <th>Quantite</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--<tr *ngFor="let march of marchandises">
+                        <th>{{idTypeMarchandise}}</th>
+                        <th>{{march.stock}}</th>
+                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button onclick="$(&quot;#resume&quot;).modal('hide');$(&quot;#addmarch&quot;).modal('show')"
+                        class="btn btn-default">
+                    Precedent
+                </button>
+                <button class="btn btn-info">
+                    Ajouter
+                </button>
             </div>
         </div>
     </div>

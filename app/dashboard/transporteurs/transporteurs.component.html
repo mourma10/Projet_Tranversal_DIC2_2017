@@ -5,90 +5,21 @@
                 <div class="col-md-9">
                 </div>
                 <div class="col-md-3">
-                    <button class="btn btn-warning btn-icon btn-icon-right" (click)="addTransporteurModal.open()">
+                    <button class="btn btn-warning btn-icon btn-icon-right" data-toggle="modal"
+                            data-target="#addTransporteurModal">
                         <i class="material-icons">create</i>
                         Ajouter Transporteur
                     </button>
                 </div>
             </div>
 
-            <modal #addTransporteurModal
-
-                   modalClass="modal-md"
-                   [hideCloseButton]="false"
-                   [closeOnEscape]="true"
-                   [closeOnOutsideClick]="true"
-                   (onOpen)="actionOnOpen()"
-                   (onClose)="addTransporteurModal.close()"
-                   (onSubmit)="actionOnSubmit()">
-                <modal-header>
-                    <h3>Ajouter un Transporteur</h3>
-                </modal-header>
-                <modal-content>
-                    <div class="card">
-                        <div class="card-header" data-background-color="orange">
-                            <h4 class="title">Saisir ses informations</h4>
-                        </div>
-                        <div class="card-content">
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Adresse Email: {{email}}</label>
-                                            <input type="email" class="form-control" name="email" [(ngModel)]="email">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Prénom: {{prenom}}</label>
-                                            <input type="text" class="form-control" name="prenom" [(ngModel)]="prenom">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Nom: {{nom}}</label>
-                                            <input type="text" class="form-control" name="nom" [(ngModel)]="nom">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Adresse:
-                                                {{adresse}}</label>
-                                            <input type="text" class="form-control" name="adresse"
-                                                   [(ngModel)]="adresse" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Numéro de Téléphone: {{telephone}}</label>
-                                            <input type="text" class="form-control" name="telephone"
-                                                   [(ngModel)]="telephone">
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </modal-content>
-                <modal-footer>
-                    <button type="submit" (click)="ajouterTransporteur();addTransporteurModal.close();"
-                            class="btn btn-warning">Ajouter
-                    </button>
-                    <button class="btn btn-danger" (click)="addTransporteurModal.close()">Annuler</button>
-                </modal-footer>
-            </modal>
 
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header" data-background-color="red">
+                    <div class="card-header" data-background-color="orange">
                         <h4 class="title">Transporteurs</h4>
                         <p class="category">La liste de mes transporteurs</p>
                     </div>
-
 
                     <div class="card-content table-responsive">
                         <table class="table">
@@ -118,6 +49,86 @@
 
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="addTransporteurModal" class="modal fade" role="dialog" aria-labelledby="addTransporteurModalLabel"
+     aria-hidden="false">
+    <div class="modal-dialog modal-md" style="top: -5%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="title">Ajouter Transporteur</h1>
+            </div>
+            <div class="modal-body">
+                <form name="form">
+                    <div class="col-lg-5">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Prénom:
+                                {{prenom}}</label>
+                            <input type="text" class="form-control" name="nom"
+                                   [(ngModel)]="prenom" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-lg-offset-1">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Nom: {{nom}}</label>
+                            <input type="text" class="form-control" name="nom"
+                                   [(ngModel)]="nom" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Adresse Email:
+                                {{email}}</label>
+                            <input type="email" class="form-control"
+                                   name="email"
+                                   [(ngModel)]="email"
+                                   required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-offset-1">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Numéro de Téléphone:
+                                {{telephone}}</label>
+                            <input type="text" class="form-control"
+                                   name="telephone"
+                                   [(ngModel)]="telephone" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Adresse:
+                                {{adresse}}</label>
+                            <input type="text" class="form-control"
+                                   name="adresse"
+                                   [(ngModel)]="adresse" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-offset-1">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Compagnie:
+                                {{adresse}}</label>
+                            <input type="text" class="form-control"
+                                   name="adresse"
+                                   [(ngModel)]="adresse" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">
+                    Annuler
+                </button>
+                <button class="btn btn-twitter"
+                        (click)="ajouterTransporteur();">Ajouter
+                </button>
             </div>
         </div>
     </div>

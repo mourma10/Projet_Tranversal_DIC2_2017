@@ -1,13 +1,24 @@
+<div *ngIf="location.path() == '/login'">
+    <div class="logo">
+        <a href="#" class="simple-text">
+            <div class="logo-img">
+                <img src="/assets/img/joker-logo.jpg"/>
+            </div>
+            AppTrading
+        </a>
+    </div>
+</div>
 <div *ngIf="location.path() != '/login'">
     <div class="logo">
         <a href="#" class="simple-text">
             <div class="logo-img">
                 <img src="/assets/img/joker-logo.jpg"/>
             </div>
-            Joker Trading
+            AppTrading
         </a>
     </div>
-    <div *ngIf="location.path() != '/dashboardclient' && location.path() != '/dashboardrepresentant' && location.path() != '/dashboardtransporteur'"   class="sidebar-wrapper">
+    <div *ngIf="location.path() != '/dashboardclient' && location.path() != '/dashboardrepresentant' && location.path() != '/dashboardtransporteur'"
+         class="sidebar-wrapper">
         <div class="nav-container">
             <ul class="nav">
                 <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">

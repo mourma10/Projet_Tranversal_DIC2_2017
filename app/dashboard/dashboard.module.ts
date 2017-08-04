@@ -9,7 +9,7 @@ import {AuthGuard} from '../authentification/authentification.guard';
 import {AuthentificationService} from '../authentification/authentification.service';
 import {RepresentantServices} from './representants/representants.service';
 import {TransporteursServices} from "./transporteurs/transporteurs.service";
-import { AjouterNoteDebitService } from './dashboardtransporteur/ajouternotedebit.service';
+import {AjouterNoteDebitService} from './dashboardtransporteur/ajouternotedebit.service';
 import {MarchandiseService} from './marchandises/marchandises.service';
 import {TradingServices} from "./trading/trading.service";
 import {DashboardclientServices} from "./dashboardclient/dashboardclient.service";

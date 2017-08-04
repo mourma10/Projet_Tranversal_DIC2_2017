@@ -14,7 +14,6 @@ export class RepresentantsComponent implements OnInit {
     email: string;
     telephone: string;
     adresse: string;
-    ajoutOk: Boolean = false;
     representants: Representant[] = [];
 
     constructor(private representantService: RepresentantServices) {

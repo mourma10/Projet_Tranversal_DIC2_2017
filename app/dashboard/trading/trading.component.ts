@@ -17,35 +17,33 @@ export class TradingComponent implements OnInit {
     dateDebut: Date;
     destination: string;
     idTypeMarchandise: number;
-    transporteurs:Transporteur[] = [];
+    transporteurs: Transporteur[] = [];
     quantite: number;
     libelleTrading: string;
     typeMarchandises: TypeMarchandise[] = [];
-    marchandises:Marchandise[] = [];
+    marchandises: Marchandise[] = [];
     tradings: Trading[] = [];
+    trading: Trading;
 
 
     constructor(private router: Router, private serviceTradings: TradingServices,
-    private serviceTransporteur:TransporteursServices, private serviceMarchandise:MarchandiseService) {
+                private serviceTransporteur: TransporteursServices, private serviceMarchandise: MarchandiseService) {
     }
 
     ngOnInit() {
         let self = this;
         this.serviceTransporteur.listerTransporteurs()
-            .subscribe(transporteurs =>{
+            .subscribe(transporteurs => {
                 self.transporteurs = transporteurs.items;
             });
         this.serviceMarchandise.listerMarchandises()
-            .subscribe(typeMarchandises =>{
+            .subscribe(typeMarchandises => {
                 self.typeMarchandises = typeMarchandises.items;
             });
-           this.serviceTradings.listerTradings()
-                    .subscribe(tradings => {
-                        self.tradings = tradings.items;
-                    });
-    }
-
-    detailTrading(trading: any) {
+        this.serviceTradings.listerTradings()
+            .subscribe(tradings => {
+                self.tradings = tradings.items;
+            });
     }
 
     addMarchandise() {
@@ -64,44 +62,43 @@ export class TradingComponent implements OnInit {
             this.dateDebut,
             this.destination,
             this.marchandises
-            )
-        .subscribe(response =>{
-            let trading: Trading = {
-                libelle: self.libelleTrading,
-                transporteurId: self.idTransporteur,
-                dateDebut: self.dateDebut,
-                destination: self.destination,
-                marchandises: self.marchandises
-            };
-            this.tradings.push(trading);
-        });
+        )
+            .subscribe(response => {
+                let trading: Trading = {
+                    libelle: self.libelleTrading,
+                    transporteurId: self.idTransporteur,
+                    dateDebut: self.dateDebut,
+                    destination: self.destination,
+                    marchandises: self.marchandises
+                };
+                this.tradings.push(trading);
+            });
     }
 
-    getTrading(tradingId:number){
-        this.serviceTradings.infoTrading(tradingId)
-            .subscribe(response =>{
-                this.router.navigate(['/icons'], {queryParams:{tradingId:tradingId}});
-            });
+    getTrading() {
+        this.router.navigate(['/icons']);
     }
 }
 
 interface TypeMarchandise {
-    id?:number;
+    id?: number;
     libelle: string;
 }
 
 interface Marchandise {
-    typeMarchandiseId:number;
-    stock:number;
+    typeMarchandiseId: number;
+    stock: number;
 }
 
 interface Trading {
+    id?: number;
     libelle: string;
     transporteurId: number,
     dateDebut: Date;
     destination: string;
     marchandises: Marchandise[];
 }
+
 interface Transporteur {
     id?: number;
     nomTransporteur: string;

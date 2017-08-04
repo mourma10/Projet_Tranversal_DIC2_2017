@@ -1,95 +1,16 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-9">
-                </div>
-                <div class="col-md-3">
-                    <button class="btn btn-info btn-icon btn-icon-right" (click)="addReprModal.open()">
-                        <i class="material-icons">create</i>
-                        Ajouter Representant
-                    </button>
-                </div>
+            <div class="col-md-9"></div>
+            <div class="col-md-3">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#addReprModal"
+                        type="button">
+                    Ajouter Representant
+                </button>
             </div>
-            <form>
-                <modal #addReprModal
-
-                       modalClass="modal-md"
-                       [hideCloseButton]="false"
-                       [closeOnEscape]="true"
-                       [closeOnOutsideClick]="true"
-                       (onOpen)="addreprModal.open()"
-                       (onClose)="addReprModal.close()"
-                       (onSubmit)="ajouterRepresentant()">
-                    <modal-header>
-                        <h3>Ajouter un Representant</h3>
-                    </modal-header>
-                    <modal-content style="background-color: black">
-                        <div class="card">
-                            <div class="card-header" data-background-color="blue">
-                                <h4 class="title">Saisir ses informations</h4>
-                            </div>
-                            <div class="card-content">
-
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Adresse Email: {{email}}</label>
-                                            <input type="email" class="form-control" name="email" [(ngModel)]="email"
-                                                   required>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Prénom: {{prenom}}</label>
-                                            <input type="text" class="form-control" name="nom"
-                                                   [(ngModel)]="prenom" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Nom: {{nom}}</label>
-                                            <input type="text" class="form-control" name="nom"
-                                                   [(ngModel)]="nom" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Adresse:
-                                                {{adresse}}</label>
-                                            <input type="text" class="form-control" name="adresse"
-                                                   [(ngModel)]="adresse" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <div class="form-group form-black label-floating is-empty">
-                                            <label class="control-label">Numéro de Téléphone:
-                                                {{telephone}}</label>
-                                            <input type="text" class="form-control" name="telephone"
-                                                   [(ngModel)]="telephone" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </modal-content>
-                    <modal-footer>
-                        <button (click)="ajouterRepresentant();addReprModal.close();" class="btn btn-info">
-                            Ajouter
-                        </button>
-                        <button class="btn btn-danger" (click)="addReprModal.close()">Annuler</button>
-                    </modal-footer>
-                </modal>
-            </form>
             <div class="col-md-12">
                 <div class="card card-plain">
-                    <div class="card-header" data-background-color="red">
+                    <div class="card-header" data-background-color="orange">
                         <h3 class="title">Representants</h3>
                         <p class="category">la liste de mes representants</p>
                     </div>
@@ -121,7 +42,84 @@
                     </div>
                 </div>
             </div>
-
         </div> <!-- fin row -->
     </div> <!-- fin container fluid -->
 </div> <!-- fin main-content -->
+
+<div id="addReprModal" class="modal fade" role="dialog" aria-labelledby="addReprModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-md" style="top: -5%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="title text-center">Ajouter Representant</h1>
+            </div>
+            <div class="modal-body">
+                <form name="form">
+                    <div class="col-lg-5">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Prénom:
+                                {{prenom}}</label>
+                            <input type="text" class="form-control" name="nom"
+                                   [(ngModel)]="prenom" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-lg-offset-1">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Nom: {{nom}}</label>
+                            <input type="text" class="form-control" name="nom"
+                                   [(ngModel)]="nom" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Adresse Email:
+                                {{email}}</label>
+                            <input type="email" class="form-control"
+                                   name="email"
+                                   [(ngModel)]="email"
+                                   required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-offset-1">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Numéro de Téléphone:
+                                {{telephone}}</label>
+                            <input type="text" class="form-control"
+                                   name="telephone"
+                                   [(ngModel)]="telephone" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Adresse:
+                                {{adresse}}</label>
+                            <input type="text" class="form-control"
+                                   name="adresse"
+                                   [(ngModel)]="adresse" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-offset-1">
+                        <div class="form-group form-black label-floating is-empty">
+                            <label class="control-label">Compagnie:
+                                {{adresse}}</label>
+                            <input type="text" class="form-control"
+                                   name="adresse"
+                                   [(ngModel)]="adresse" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">
+                    Annuler
+                </button>
+                <button class="btn btn-twitter"
+                        (click)="ajouterRepresentant();">Ajouter
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

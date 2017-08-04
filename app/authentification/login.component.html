@@ -1,27 +1,83 @@
-<form name="form">
-    <div class="col-md-6 col-md-offset-2" style="padding-top: 12%;padding-left: 8%">
-        <div class="card">
-            <div class="card-header" data-background-color="red">
-                <h1 class="title">AppTrading</h1>
+<div id="myModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog" style="width: 400px;">
+        <!-- Modal content-->
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title text-center">AppTrading</h1>
             </div>
-            <div class="card-content">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="form-group">
-                        <label>Login: {{username}}</label>
-                        <input type="text" class="form-control" title="name" name="username" [(ngModel)]="username"
+            <div class="modal-body">
+                <form name="form">
+                    <div class="col-md-12 label-floating is-empty">
+                        <label for="username" class="control-label">Login:
+                            {{username}}</label>
+                        <input type="text" class="form-control" title="name"
+                               id="username" name="username" [(ngModel)]="username"
                                required/>
                     </div>
-                    <div class="form-group">
-                        <label>Password:{{password}}</label>
-                        <input type="password" class="form-control" name="password" [(ngModel)]="password" required/>
+                    <div class="col-md-12 label-floating is-empty">
+                        <label for="password" class="control-label">Password:{{password}}</label>
+                        <input type="password" class="form-control"
+                               name="password" id="password"
+                               [(ngModel)]="password"
+                               required/>
                     </div>
-                </div>
+                </form>
             </div>
-            <div class="card-footer">
-                <div class="form-group pull-right col-lg-12">
-                    <button (click)="login()" class="btn btn-danger btn-block btn-google">Connexion</button>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Fermer
+                </button>
+                <button type="button" (click)="login()" class="btn btn-success">
+                    Connexion
+                </button>
             </div>
         </div>
     </div>
-</form>
+</div>
+<div class="container-fluid" style="margin: 2%">
+    <div class="jumbotron">
+        <div class="col-md-12">
+            <button class="btn btn-success" data-toggle="modal" data-target="#myModal" style="float:right">
+                Connexion
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="title">AppTrading</h1>
+            </div>
+            <div id="carousel-example-generic" class="carousel slide col-md-12" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="/assets/img/joker.jpg" class="img-responsive">
+
+                    </div>
+                    <div class="item">
+                        <img src="/assets/img/mbuntu.jpg" class="img-responsive">
+                    </div>
+                    ...
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic" role="button"
+                   data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Precedent</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button"
+                   data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Suivant</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
