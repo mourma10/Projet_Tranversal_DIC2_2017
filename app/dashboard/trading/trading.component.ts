@@ -75,8 +75,8 @@ export class TradingComponent implements OnInit {
             });
     }
 
-    getTrading() {
-        this.router.navigate(['/icons']);
+    getTrading(tradingId: number) {
+        this.router.navigate(['/icons'], {queryParams: {tradingid: tradingId}});
     }
 }
 

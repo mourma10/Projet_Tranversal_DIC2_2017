@@ -4,48 +4,12 @@
             <div class="col-md-8">
             </div>
             <div class="col-md-4">
-                <button class="btn btn-warning btn-icon btn-icon-right" data-toggle="modal" data-target="#info">
+                <button class="btn btn-warning btn-icon btn-icon-right" data-toggle="modal" data-target="#mdp">
                     <i class="material-icons">create</i>
                     Emettre Instruction de Livraison
                 </button>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header" data-background-color="green">
-                        <h6 class="title">TRADING</h6>
-                    </div>
-                    <div class="card-content">
-                        <form>
-                            <h6 class="title">Informations Trading</h6>
-                            <table class="table">
-                                <thead class="text-danger">
-                                <tr>
-                                    <th>Libelle</th>
-                                    <th>Destination</th>
-                                    <th>Date de debut</th>
-                                    <th>Transporteur</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <!--<tr *ngFor="let trading of tradings">
-                                    <td>{{trading.libelle}}</td>
-                                    <td>{{trading.destination}}</td>
-                                    <td>{{trading.dateDebut}}</td>
-                                    <td>{{trading.transporteur.prenomTransporteur}}
-                                        {{trading.transporteur.nomTransporteur}}
-                                    </td>
-                                </tr>-->
-                                </tbody>
-                            </table>
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="card">
@@ -58,15 +22,13 @@
                             <tr>
                                 <th>Libellé</th>
                                 <th>Représentant</th>
-                                <th>Transporteur</th>
-                                <th>Plus</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>INSTR4791</td>
-                                <td>Dakota Rice</td>
-                                <td>Dakota Rice</td>
+                            <tr *ngFor="let instr of instructions">
+                                <td>{{instr.libelle}}</td>
+                                <td>{{instr.representantId}}</td>
                                 <td>
                                     <button class="btn btn-success btn-icon btn-icon-right" (click)="detailTrading()">
                                         Details
@@ -83,8 +45,33 @@
 </div>
 
 
+<div id="mdp" class="modal fade" role="dialog" aria-labelledby="mdpLabel" aria-hidden="false">
+    <div class="modal-dialog" style="top:-5%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="title text-center">Authentification</h1>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-4 col-md-offset-1">
+                    <div class="form-group form-black label-floating is-empty">
+                        <label class="control-label">Mot de passe</label>
+                        <input type="text" name="libelleTrading" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="$(&quot;#mdp&quot;).modal('hide');$(&quot;#info&quot;).modal('show')"
+                        class="btn btn-info">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div id="info" class="modal fade" role="dialog" aria-labelledby="infoLabel" aria-hidden="false">
-    <div class="modal-dialog modal-md" style="top:-5%;">
+    <div class="modal-notice modal-md" style="top:-5%;">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="title text-center">Informations</h1>
@@ -92,18 +79,19 @@
             <div class="modal-body">
                 <div class="form-group form-black label-floating is-empty">
                     <label class="control-label">Libellé</label>
-                    <input type="text" name="libelleTrading"
+                    <input type="text" name="libelle" [(ngModel)]="libelle"
                            class="form-control">
                 </div>
                 <div class="form-group form-black label-floating is-empty">
-                    <label class="control-label">Tranporteur</label>
-                    <select type="text" name="destination"
-                            class="form-control"></select>
-                </div>
-                <div class="form-group form-black label-floating is-empty">
                     <label class="control-label">Representant</label>
-                    <select class="form-control" id="trsp" name="idTransporteur"
-                    >
+                    <select class="form-control" id="rep" name="idRepresentant"
+                            [(ngModel)]="idRepresentant">
+                        <option *ngFor="let representant of representants"
+                                value="{{representant.id}}">
+                            {{representant.id}} -
+                            {{representant.prenomRepresentant}}
+                            {{representant.nomRepresentant}}
+                        </option>
                     </select>
                 </div>
             </div>
@@ -122,7 +110,7 @@
 </div>
 
 <div id="addmarch" class="modal fade" role="dialog" aria-labelledby="addmarchLabel" aria-hidden="false">
-    <div class="modal-dialog modal-md" style="top:-5%;">
+    <div class="modal-notice modal-md" style="top:-5%;">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="title text-center">Marchandises</h1>
@@ -132,7 +120,12 @@
                     <div class="form-group form-black label-floating is-empty">
                         <label class="control-label">Libellé </label>
                         <select name="idTypeMarchandise"
+                                [(ngModel)]="idTypeMarchandise"
                                 class="form-control">
+                            <option *ngFor="let typeMarch of typeMarchandises"
+                                    value="{{typeMarch.id}}">
+                                {{typeMarch.libelle}}
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -140,12 +133,12 @@
                 <div class="col-md-6 col-md-offset-1">
                     <div class="form-group form-black label-floating is-empty">
                         <label class="control-label">Quantité</label>
-                        <input type="text" name="quantite"
+                        <input type="text" name="quantite" [(ngModel)]="quantite"
                                class="form-control">
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <button
+                    <button (click)="addMarchandise()"
                             class="btn btn-success btn-icon btn-icon-left">
                         <i class="material-icons">exposure_plus_1</i> Ajouter
                     </button>
@@ -158,20 +151,13 @@
                     <tr>
                         <th>libelle</th>
                         <th>Quantite</th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <!--<tr *ngFor="let march of marchandises">
+                    <tr *ngFor="let march of marchandises">
                         <td>{{march.typeMarchandiseId}}</td>
                         <td>{{march.stock}}</td>
-                        <td>
-                            <button class="btn btn-danger btn-icon btn-icon-right"
-                                    type="submit">
-                                <i class="material-icons">delete</i>
-                            </button>
-                        </td>
-                    </tr>-->
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -189,7 +175,7 @@
     </div>
 </div>
 <div id="resume" class="modal fade" role="dialog" aria-labelledby="resumeLabel" aria-hidden="false">
-    <div class="modal-dialog modal-md" style="top:-5%;">
+    <div class="modal-notice modal-md" style="top:-5%;">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="title text-center">Resume</h1>
@@ -206,7 +192,7 @@
                     </thead>
                     <tbody>
                     <!--<tr>
-                        <td>{{libelleTrading}}</td>
+                        <td>{{libelle}}</td>
                         <td>{{idTransporteur}}</td>
                         <td>{{destination}}</td>
                     </tr>-->
@@ -221,10 +207,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <!--<tr *ngFor="let march of marchandises">
+                    <tr *ngFor="let march of marchandises">
                         <th>{{idTypeMarchandise}}</th>
                         <th>{{march.stock}}</th>
-                    </tr>-->
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -233,7 +219,7 @@
                         class="btn btn-default">
                     Precedent
                 </button>
-                <button class="btn btn-info">
+                <button (click)="ajouterInstruction()" class="btn btn-info">
                     Ajouter
                 </button>
             </div>

@@ -13,6 +13,7 @@ import {AjouterNoteDebitService} from './dashboardtransporteur/ajouternotedebit.
 import {MarchandiseService} from './marchandises/marchandises.service';
 import {TradingServices} from "./trading/trading.service";
 import {DashboardclientServices} from "./dashboardclient/dashboardclient.service";
+import {InstructionServices} from './icons/instruction.service';
 
 @NgModule({
     imports: [
@@ -31,6 +32,7 @@ import {DashboardclientServices} from "./dashboardclient/dashboardclient.service
         DashboardclientServices,
         TransporteursServices,
         AjouterNoteDebitService,
+        InstructionServices
     ],
     declarations: [MODULE_COMPONENTS],
     exports: [MODULE_COMPONENTS]
